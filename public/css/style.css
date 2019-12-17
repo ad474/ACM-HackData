@@ -482,7 +482,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   position: absolute;
   bottom: 0;
   left: 0;
-  top: 90px;
+  top: 0px;
   right: 0;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -524,7 +524,7 @@ body.mobile-nav-active #mobile-nav-toggle {
   height: 94px;
   background: radial-gradient(#f82249 50%, rgba(101, 111, 150, 0.15) 52%);
   border-radius: 50%;
-  display: block;
+  display: inline-block;
   position: relative;
   overflow: hidden;
 }
@@ -648,7 +648,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 --------------------------------------------------------------*/
 
 #about {
-  background: url("../img/about-bg.jpg");
+  background: url("../img/new.jpg");
   background-size: cover;
   overflow: hidden;
   position: relative;
@@ -658,7 +658,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #about:before {
   content: "";
-  background: rgba(13, 20, 41, 0.8);
+  background: rgba(28, 28, 28, 0.79);
   position: absolute;
   bottom: 0;
   top: 0;
@@ -1585,7 +1585,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 @media (max-width: 991px) {
   #header {
-    background: rgba(6, 12, 34, 0.98);
+    background: rgba(6, 12, 34, 0.2);
     height: 70px;
     padding: 15px 0;
     transition: all 0.5s;
@@ -1654,10 +1654,6 @@ body.mobile-nav-active #mobile-nav-toggle {
   }
 }
 
-
-section #intro {
-  pointer-events: none;
+.reg{
+  font-size: 1.4em; !important;
 }
-
-* {z-index: 2; }
-#particle-js, #particle-js> canvas {z-index: 1! important; }
