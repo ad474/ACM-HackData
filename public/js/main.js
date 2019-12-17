@@ -143,5 +143,13 @@ jQuery(document).ready(function( $ ) {
   })
 
 // custom code
-
+var kursorx = new kursor({
+  type: 1,
+  color: 'rgb(183,59,42)',
+  removeDefaultCursor: true
+})
 });
+
+
+
+
