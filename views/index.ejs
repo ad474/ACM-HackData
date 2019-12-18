@@ -1016,11 +1016,25 @@ black  #142F30
   </main>
 
   <div id="itemm" style="display:none;">
+    <h2 class="section-header">RESUME SECTION</h2>
     <form method="POST" enctype="multipart/form-data" action="/fileupload">
+      <label>Enter resume of team member 1</label>
+      <br />
       <input type="file" name="filename" />
+      <br />
+      <br />
+      <label>Enter resume of team member 2</label>
+      <br />
       <input type="file" name="filename2" />
+      <br />
+      <br />
+      <label>Enter resume of team member 3</label>
+      <br />
       <input type="file" name="filename3" />
-      <input type="submit" value="upload" />
+      <br />
+      <br />
+      <br />
+      <button type="submit" value="upload" class="filesubmit">Submit form</button>
     </form>
     <!-- <form method="POST" enctype="multipart/form-data" action="/fileupload" class="contactForm">
       <input type="file" name="filename" />
@@ -1099,6 +1113,8 @@ black  #142F30
   function toggleDiv(id) {
       var div = document.getElementById(id);
       div.style.display = div.style.display == "none" ? "block" : "none";
+      alert("Upload resumes of team members");
+      document.getElementById('itemm').scrollIntoView();
   }
 </script>
 
