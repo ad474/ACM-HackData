@@ -10,6 +10,12 @@ black  #142F30
 
 
 -->
+
+<!-- <form method="POST" enctype="multipart/form-data" action="/fileupload">
+  <input type="file" name="filename" />
+  <input type="submit" value="upload" />
+</form> -->
+
 <head>
   <meta charset="utf-8">
   <title>ACM HackData-2020</title>
@@ -43,6 +49,8 @@ black  #142F30
     Author: BootstrapMade.com
     License: https://bootstrapmade.com/license/
   ======================================================= -->
+
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
 </head>
 
 <body>
@@ -77,6 +85,7 @@ black  #142F30
   <!--==========================
     Intro Section
   ============================-->
+
   <section id="intro">
     <div class="intro-container wow fadeIn">
       <h1 class="mb-4 pb-0">The Annual<br><span>multifaceted </span><span>social coding</span><br>event</h1>
@@ -118,6 +127,8 @@ black  #142F30
       </div>
       </div>
     </section>
+
+
 
     <!--==========================
       Judges Section
@@ -864,6 +875,23 @@ black  #142F30
 
       </div>
     </section>
+<!--
+    <form
+  action="https://formspree.io/xpzqzjpw"
+  method="POST"
+  enctype="multipart/form-data"
+  >
+  <label>
+    Your email:
+    <input type="text" name="_replyto">
+  </label>
+  <label>
+    Your file:
+    <input type="file" name="upload">
+  </label>
+
+  <button type="submit">Send</button>
+</form> -->
 
     <!--==========================
       Contact Section
@@ -878,12 +906,19 @@ black  #142F30
         </div>
 
         <div class="form">
-          <div id="sendmessage">Your message has been sent. Thank you!</div>
-          <div id="errormessage"></div>
-          <form action="/register" method="post" role="form" class="contactForm">
+          <!-- <div id="sendmessage">Your message has been sent. Thank you!</div>
+          <div id="errormessage"></div> -->
+
+          <form method="POST" action="/register" class="contactForm" >
+          <!-- <form
+          action="https://formspree.io/xpzqzjpw"
+          method="POST"
+          enctype="multipart/form-data"
+          > -->
+
             <div class="form-group">
               <input type="text" class="form-control" name="teamname" id="subject" placeholder="Team Name" data-rule="minlen:1" data-msg="Please enter a team name"/>
-              <div class="validation"></div>
+              <!-- <div class="validation"></div> -->
             </div>
             <div class="form-group">
               <label>Select track</label>
@@ -923,67 +958,83 @@ black  #142F30
             <div class="form-row">
               <div class="form-group col-md-6">
                 <input type="text" name="name1" class="form-control" id="name1" placeholder="Name" data-rule="minlen:1" data-msg="Please enter name" />
-                <div class="validation"></div>
+                <!-- <div class="validation"></div> -->
               </div>
               <div class="form-group col-md-6">
                 <input type="text" class="form-control" name="college1" id="college1" placeholder="College name" data-rule="minlen:1" data-msg="Please enter college name" />
-                <div class="validation"></div>
+                <!-- <div class="validation"></div> -->
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">
-                <input type="text" name="number" class="form-control" id="number1" placeholder="Phone number" data-rule="minlen:10" data-msg="Please enter a valid phone number" />
-                <div class="validation"></div>
+                <input type="text" name="number1" class="form-control" id="number1" placeholder="Phone number" data-rule="minlen:10" data-msg="Please enter a valid phone number" />
+                <!-- <div class="validation"></div> -->
               </div>
               <div class="form-group col-md-6">
-                <input type="email" class="form-control" name="email" id="email1" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                <div class="validation"></div>
+                <input type="email" class="form-control" name="email1" id="email1" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                <!-- <div class="validation"></div> -->
               </div>
             </div>
+
+            <!-- <div class="form-group col-md-6">
+              <label>Resume of member 1</label>
+              <input type="file" name="cv1" class="form-control" id="cv1" required />
+              <div class="validation"></div>
+            </div> -->
             <br />
             <label>Details of team member 2</label>
             <div class="form-row">
               <div class="form-group col-md-6">
-                <input type="text" name="name1" class="form-control" id="name2" placeholder="Name" data-rule="minlen:1" data-msg="Please enter name" />
-                <div class="validation"></div>
+                <input type="text" name="name2" class="form-control" id="name2" placeholder="Name" data-rule="minlen:1" data-msg="Please enter name" />
+                <!-- <div class="validation"></div> -->
               </div>
               <div class="form-group col-md-6">
-                <input type="text" class="form-control" name="college1" id="college2" placeholder="College name" data-rule="minlen:1" data-msg="Please enter college name" />
-                <div class="validation"></div>
+                <input type="text" class="form-control" name="college2" id="college2" placeholder="College name" data-rule="minlen:1" data-msg="Please enter college name" />
+                <!-- <div class="validation"></div> -->
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">
-                <input type="text" name="number" class="form-control" id="number2" placeholder="Phone number" data-rule="minlen:10" data-msg="Please enter a valid phone number" />
-                <div class="validation"></div>
+                <input type="text" name="number2" class="form-control" id="number2" placeholder="Phone number" data-rule="minlen:10" data-msg="Please enter a valid phone number" />
+                <!-- <div class="validation"></div> -->
               </div>
               <div class="form-group col-md-6">
-                <input type="email" class="form-control" name="email" id="email2" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                <div class="validation"></div>
+                <input type="email" class="form-control" name="email2" id="email2" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                <!-- <div class="validation"></div> -->
               </div>
             </div>
+            <!-- <div class="form-group col-md-6">
+              <label>Resume of member 2</label>
+              <input type="file" name="cv2" class="form-control" id="cv2" required />
+              <div class="validation"></div>
+            </div> -->
             <br />
             <label>Details of team member 3</label>
             <div class="form-row">
               <div class="form-group col-md-6">
-                <input type="text" name="name1" class="form-control" id="name3" placeholder="Name" data-rule="minlen:1" data-msg="Please enter name" />
-                <div class="validation"></div>
+                <input type="text" name="name3" class="form-control" id="name3" placeholder="Name" data-rule="minlen:1" data-msg="Please enter name" />
+                <!-- <div class="validation"></div> -->
               </div>
               <div class="form-group col-md-6">
-                <input type="text" class="form-control" name="college1" id="college3" placeholder="College name" data-rule="minlen:1" data-msg="Please enter college name" />
-                <div class="validation"></div>
+                <input type="text" class="form-control" name="college3" id="college3" placeholder="College name" data-rule="minlen:1" data-msg="Please enter college name" />
+                <!-- <div class="validation"></div> -->
               </div>
             </div>
             <div class="form-row">
               <div class="form-group col-md-6">
-                <input type="text" name="number" class="form-control" id="number3" placeholder="Phone number" data-rule="minlen:10" data-msg="Please enter a valid phone number" />
-                <div class="validation"></div>
+                <input type="text" name="number3" class="form-control" id="number3" placeholder="Phone number" data-rule="minlen:10" data-msg="Please enter a valid phone number" />
+                <!-- <div class="validation"></div> -->
               </div>
               <div class="form-group col-md-6">
-                <input type="email" class="form-control" name="email" id="email3" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
-                <div class="validation"></div>
+                <input type="email" class="form-control" name="email3" id="email3" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+                <!-- <div class="validation"></div> -->
               </div>
             </div>
+            <!-- <div class="form-group col-md-6">
+              <label>Resume of member 3</label>
+              <input type="file" name="cv3" class="form-control" id="cv3" required />
+              <div class="validation"></div>
+            </div> -->
             <br />
             <!-- <div class="form-group">
               <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
@@ -993,7 +1044,8 @@ black  #142F30
               <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
               <div class="validation"></div>
             </div> -->
-            <div class="text-center"><button type="submit">Send Message</button></div>
+            <div class="text-center"><button onclick="toggleDiv('itemm')" type="submit" value="upload" >Send Message</button></div>
+            <!-- <input type="submit" value="upload" /> -->
           </form>
         </div>
 
@@ -1001,6 +1053,21 @@ black  #142F30
     </section><!-- #contact -->
 
   </main>
+
+  <div id="itemm" style="display:none;">
+    <form method="POST" enctype="multipart/form-data" action="/fileupload">
+      <input type="file" name="filename" />
+      <input type="file" name="filename2" />
+      <input type="file" name="filename3" />
+      <input type="submit" value="upload" />
+    </form>
+    <!-- <form method="POST" enctype="multipart/form-data" action="/fileupload" class="contactForm">
+      <input type="file" name="filename" />
+      <input type="file" name="filename2" />
+      <input type="file" name="filename3" />
+      <input type="submit" value="upload" />
+    </form> -->
+  </div>
 
 
   <!--==========================
@@ -1079,6 +1146,13 @@ black  #142F30
   </footer><!-- #footer -->
 
   <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
+
+  <script>
+  function toggleDiv(id) {
+      var div = document.getElementById(id);
+      div.style.display = div.style.display == "none" ? "block" : "none";
+  }
+</script>
 
   <!-- JavaScript Libraries -->
   <script src="lib/jquery/jquery.min.js"></script>
