@@ -285,7 +285,7 @@ const db=firebase.firestore();
   if (form1) {
     form1.addEventListener('submit', function (e) {
       e.preventDefault();
-      upfile(form1.teamname.value);
+      upfile(form1.teamname.value + Date.now());
     });
   }
   var res1,res2,res3;
@@ -327,11 +327,14 @@ function upfile(teamname){
   }, function() {
     // Handle successful uploads on complete
     // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-    uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+   /* uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
       console.log('File available at', downloadURL);
       link1 = downloadURL;
       upfile2(teamname);
-    });
+    })
+    ;
+    */
+    upfile2(teamname);
   });
 
 }
@@ -359,11 +362,14 @@ function upfile(teamname){
     }, function() {
       // Handle successful uploads on complete
       // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-      uploadTask2.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+      /*uploadTask2.snapshot.ref.getDownloadURL().then(function(downloadURL) {
         console.log('File available at', downloadURL);
         link2 = downloadURL;
         upfile3(teamname);
       });
+
+       */
+      upfile3(teamname);
     });
 
   }
@@ -394,22 +400,24 @@ function upfile(teamname){
     }, function() {
       // Handle successful uploads on complete
       // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-      uploadTask3.snapshot.ref.getDownloadURL().then(function(downloadURL) {
+      /*uploadTask3.snapshot.ref.getDownloadURL().then(function(downloadURL) {
         console.log('File available at', downloadURL);
         link3 = downloadURL;
         updateDb();
       });
+
+       */
+      updateDb(teamname);
     });
   }
 
 
-function updateDb() {
+function updateDb(uniqueid) {
   console.log('written');
   db.collection('applicants').add({
+    uniqueid: uniqueid,
     teamname: form1.teamname.value,
-    resume1: link1+'',
-    resume2: link2+'',
-    resume3: link3+'',
+
   });
 }
 
