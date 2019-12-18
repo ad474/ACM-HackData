@@ -43,6 +43,8 @@ black  #142F30
 
   <link rel="stylesheet" href="kursor.css">
 
+  <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
   <!-- =======================================================
     Theme Name: TheEvent
     Theme URL: https://bootstrapmade.com/theevent-conference-event-bootstrap-template/
@@ -58,9 +60,10 @@ black  #142F30
   <!--==========================
     Header
   ============================-->
-  <header id="header">
+  <!--div id="particles-js" style="" class="intro"></div-->
+  <header id="header" class="">
     <div class="container">
-
+      <div class="">
       <div id="logo" class="pull-left">
         <!-- Uncomment below if you prefer to use a text logo -->
         <!-- <h1><a href="#main">C<span>o</span>nf</a></h1>-->
@@ -74,23 +77,33 @@ black  #142F30
           <li><a href="#judges">Judges</a></li>
           <li><a href="#schedule">Schedule</a></li>
           <li><a href="#venue">Venue</a></li>
+          <li><a href="#challenges">Challenges</a></li>
           <li><a href="#gallery">Gallery</a></li>
           <li><a href="#supporters">Sponsors</a></li>
-          <li><a href="#contact" class="btn-outline-success">Register</a></li>
+          <li><a href="#contact" class="reg">Register</a></li>
         </ul>
-      </nav><!-- #nav-menu-container -->
+      </nav>
+      </div><!-- #nav-menu-container -->
     </div>
+
+
   </header><!-- #header -->
+
 
   <!--==========================
     Intro Section
   ============================-->
 
   <section id="intro">
-    <div class="intro-container wow fadeIn">
-      <h1 class="mb-4 pb-0">The Annual<br><span>multifaceted </span><span>social coding</span><br>event</h1>
-      <p class="mb-4 pb-0">9-12 February, Shiv Nadar University</p>
-      <a href="#about" class="about-btn scrollto k-hover">About The Event</a>
+    <div id="particles-js">
+      <div class="intro-container wow fadeIn">
+        <h1 class="mb-4 pb-0"><span>Hackdata 4.0</span></h1>
+        <p class="mb-4 pb-0">9-12 February, Shiv Nadar University</p>
+        <div>
+          <a href="#about" class="about-btn scrollto k-hover">About The Event</a>
+          <a href="#contact" class="about-btn scrollto k-hover">Register</a>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -117,7 +130,7 @@ black  #142F30
                       <h3>When</h3>
                       <p>this day to that day<br>9-12 February</p>
                     </div>
-                    <div class="row">
+                    <div class="row container">
                       <div class="col-lg-12">
                         <h3>Prizes : 1 lakh+</h3>
                       </div>
@@ -133,10 +146,10 @@ black  #142F30
     <!--==========================
       Judges Section
     ============================-->
-    <section id="judges" class="wow fadeInUp">
+    <section id="judges" class="wow fadeInUp pb-5">
       <div class="container">
         <div class="section-header">
-          <h2>Event Judges</h2>
+          <h2 class="pt-5">Event Judges</h2>
           <p>Here are some of our judges, who are best in the industry</p>
         </div>
 
@@ -186,51 +199,7 @@ black  #142F30
               </div>
             </div>
           </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="speaker">
-              <img src="img/speakers/4.jpg" alt="Speaker 4" class="img-fluid">
-              <div class="details">
-                <h3><a href="speaker-details.html">Jack Christiansen</a></h3>
-                <p>Debitis iure vero</p>
-                <div class="social">
-                  <a href=""><i class="fa fa-twitter"></i></a>
-                  <a href=""><i class="fa fa-facebook"></i></a>
-                  <a href=""><i class="fa fa-google-plus"></i></a>
-                  <a href=""><i class="fa fa-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="speaker">
-              <img src="img/speakers/5.jpg" alt="Speaker 5" class="img-fluid">
-              <div class="details">
-                <h3><a href="speaker-details.html">Alejandrin Littel</a></h3>
-                <p>Qui molestiae natus</p>
-                <div class="social">
-                  <a href=""><i class="fa fa-twitter"></i></a>
-                  <a href=""><i class="fa fa-facebook"></i></a>
-                  <a href=""><i class="fa fa-google-plus"></i></a>
-                  <a href=""><i class="fa fa-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="speaker">
-              <img src="img/speakers/6.jpg" alt="Speaker 6" class="img-fluid">
-              <div class="details">
-                <h3><a href="speaker-details.html">Willow Trantow</a></h3>
-                <p>Non autem dicta</p>
-                <div class="social">
-                  <a href=""><i class="fa fa-twitter"></i></a>
-                  <a href=""><i class="fa fa-facebook"></i></a>
-                  <a href=""><i class="fa fa-google-plus"></i></a>
-                  <a href=""><i class="fa fa-linkedin"></i></a>
-                </div>
-              </div>
-            </div>
-          </div>
+
         </div>
       </div>
 
@@ -604,10 +573,10 @@ black  #142F30
           and Entrepreneurship,
            Smart City Solutions.
     ============================-->
-    <section id="The Challenges" class="section-with-bg wow fadeInUp">
+    <section id="challenges" class="section-with-bg wow fadeInUp">
 
       <div class="container">
-        <div class="section-header">
+        <div class="section-header pt-5">
           <h2>The Challenges</h2>
           <p>Choose any one track from the following</p>
         </div>
@@ -648,30 +617,22 @@ black  #142F30
 
         <div class="row">
 
-          <div class="col-lg-4 col-md-6">
+          <div class="col-md-6">
             <div class="hotel">
               <div class="hotel-img">
-                <img src="img/hotels/1.jpg" alt="Economic Development & Entrepreneurship" class="img-fluid">
+                <img src="img/hotels/4.jpg" alt="Economic Development & Entrepreneurship" class="img-fluid">
               </div>
               <h3><a href="#">Economic Development & Entrepreneurship</a></h3>
               <p>Description</p>
             </div>
           </div>
 
-          <div class="col-lg-4 col-md-6">
-            <div class="hotel">
-              <div class="hotel-img">
-                <img src="img/hotels/2.jpg" alt="Education" class="img-fluid">
-              </div>
-              <h3><a href="#">Education</a></h3>
-              <p>desc</p>
-            </div>
-          </div>
 
-          <div class="col-lg-4 col-md-6">
+
+          <div class=" col-md-6">
             <div class="hotel">
               <div class="hotel-img">
-                <img src="img/hotels/3.jpg" alt="Smart City Solutions" class="img-fluid">
+                <img src="img/hotels/5.jpg" alt="Smart City Solutions" class="img-fluid">
               </div>
               <h3><a href="#">Smart City Solutions</a></h3>
               <p>desc</p>
@@ -1086,41 +1047,42 @@ black  #142F30
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="fa fa-angle-right"></i> <a href="#">Home</a></li>
-              <li><i class="fa fa-angle-right"></i> <a href="#">About us</a></li>
-              <li><i class="fa fa-angle-right"></i> <a href="#">Services</a></li>
-              <li><i class="fa fa-angle-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="fa fa-angle-right"></i> <a href="#">Privacy policy</a></li>
+              <li><i class="fa fa-angle-right"></i> <a href="#">Breeze</a></li>
+              <li><i class="fa fa-angle-right"></i> <a href="#intro">Home</a></li>
+              <li><i class="fa fa-angle-right"></i> <a href="#about">About us</a></li>
+              <li><i class="fa fa-angle-right"></i> <a href="#judges">Judges</a></li>
+              <li><i class="fa fa-angle-right"></i> <a href="#schedule">Schedule</a></li>
+
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Useful Links</h4>
             <ul>
-              <li><i class="fa fa-angle-right"></i> <a href="#">Home</a></li>
-              <li><i class="fa fa-angle-right"></i> <a href="#">About us</a></li>
-              <li><i class="fa fa-angle-right"></i> <a href="#">Services</a></li>
-              <li><i class="fa fa-angle-right"></i> <a href="#">Terms of service</a></li>
-              <li><i class="fa fa-angle-right"></i> <a href="#">Privacy policy</a></li>
+              <li><i class="fa fa-angle-right"></i> <a href="#venue">Venue</a></li>
+              <li><i class="fa fa-angle-right"></i> <a href="#challenges">Challenges</a></li>
+              <li><i class="fa fa-angle-right"></i> <a href="#gallery">Gallery</a></li>
+              <li><i class="fa fa-angle-right"></i> <a href="#supporters">Sponsors</a></li>
+              <li><i class="fa fa-angle-right"></i> <a href="#contact">Register</a></li>
+
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-contact">
             <h4>Contact Us</h4>
             <p>
-              A108 Adam Street <br>
-              New York, NY 535022<br>
-              United States <br>
-              <strong>Phone:</strong> +1 5589 55488 55<br>
-              <strong>Email:</strong> info@example.com<br>
+              Shiv Nadar University <br>
+              NH91, Tehsil Dadri<br>
+              Greater Noida, Up-201314<br>
+              <strong>Phone:</strong> <a href="tel:+91 82678 57974">+91 82678 57974</a><br>
+              <strong>Email:</strong> <a href="mailto:acm@snu.edu.in" target="_top">acm@snu.edu.in</a><br>
             </p>
 
             <div class="social-links">
-              <a href="#" class="twitter"><i class="fa fa-twitter"></i></a>
-              <a href="#" class="facebook"><i class="fa fa-facebook"></i></a>
-              <a href="#" class="instagram"><i class="fa fa-instagram"></i></a>
-              <a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
-              <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a>
+              <!--a href="#" class="facebook"><i class="fa fa-facebook"></i></a-->
+              <a href="https://www.instagram.com/snu.acm/" class="instagram"><i class="fa fa-instagram"></i></a>
+              <!--a href="#" class="google-plus"><i class="fa fa-google-plus"></i></a>
+              <a href="#" class="linkedin"><i class="fa fa-linkedin"></i></a-->
             </div>
 
           </div>
@@ -1129,20 +1091,6 @@ black  #142F30
       </div>
     </div>
 
-    <div class="container">
-      <div class="copyright">
-        &copy; Copyright <strong>TheEvent</strong>. All Rights Reserved
-      </div>
-      <div class="credits">
-        <!--
-          All the links in the footer should remain intact.
-          You can delete the links only if you purchased the pro version.
-          Licensing information: https://bootstrapmade.com/license/
-          Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/buy/?theme=TheEvent
-        -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
-      </div>
-    </div>
   </footer><!-- #footer -->
 
   <a href="#" class="back-to-top"><i class="fa fa-angle-up"></i></a>
