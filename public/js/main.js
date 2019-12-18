@@ -400,8 +400,6 @@ function upfile(teamname){
         updateDb();
       });
     });
-
-
   }
 
 

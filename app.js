@@ -51,7 +51,7 @@ const teamSchema=new mongoose.Schema({
 
 app.get("/", function(req,res){
   // res.sendFile('views/index.html' , { root : __dirname});
-  res.render("index");
+  res.render("index.html");
 });
 
 app.post("/register", function(req,res){
