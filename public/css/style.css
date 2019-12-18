@@ -9,6 +9,10 @@
 # General
 --------------------------------------------------------------*/
 
+html{
+  scroll-behavior: smooth;
+}
+
 body {
   background: #fff;
   color: #2f3138;
@@ -1656,8 +1660,20 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #itemm{
   display: none;
-  background-color: purple;
+  background-color: grey;
+  padding:50px;
+  text-align: center;
 }
 .reg{
   font-size: 1.4em; !important;
+}
+
+.filesubmit{
+  background: #f82249;
+border: 0;
+padding: 10px 40px;
+color: #fff;
+transition: 0.4s;
+border-radius: 50px;
+cursor: pointer;
 }
