@@ -1,8 +1,65 @@
 service firebase.storage {
   match /b/{bucket}/o {
-    match /{allPaths=**} {
+    match /resumes/{uniqueid}/{resumeid} {
       allow read: if false;
-      allow write: if true;
+      allow write: if request.resource.size < 2 * 1024 * 1024
+      							&& request.resource.contentType == 'application/pdf'
+      							&& resumeid.size() < 140
+                    && uniqueid.size() < 140
+                    && request.resource.size > 0
+                    //&& resource == null;
+                    //&& resumeid.matches(".*\\.pdf")
+                    ;
     }
+
+    match /resumes/{uniqueid}/{resumeid} {
+      allow read: if false;
+      allow write: if request.resource.size < 2 * 1024 * 1024
+      							&& request.resource.contentType == 'application/msword'
+      							&& resumeid.size() < 140
+                    && uniqueid.size() < 140
+                    && request.resource.size > 0
+                    //&& resumeid.matches(".*\\.doc")
+                    ;
+    }
+
+    match /resumes/{uniqueid}/{resumeid} {
+      allow read: if false;
+      allow write: if request.resource.size < 2 * 1024 * 1024
+      							&& request.resource.contentType == 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+      							&& resumeid.size() < 140
+                    && uniqueid.size() < 140
+                    && request.resource.size > 0
+                    //&& resumeid.matches(".*\\.docx")
+                    ;
+    }
+
+
+    //match /resumes/{uniqueid}/{resumeid} {
+    //  allow read: if false;
+    //  allow write: if request.resource.size < 2 * 1024 * 1024
+    //  							&& resumeid.size() < 140
+    //                && uniqueid.size() < 140
+      //              && resumeid.matches(".*\\.docx")
+        //            ;
+    //}
+    //match /resumes/{uniqueid}/{resumeid} {
+     // allow read: if false;
+      //allow write: if request.resource.size < 2 * 1024 * 1024
+     /// 							&& resumeid.size() < 140
+      //              && uniqueid.size() < 140
+       //             && resumeid.matches(".*\\.pdf")
+        //            ;
+    //}
+    //match /resumes/{uniqueid}/{resumeid} {
+     // allow read: if false;
+      //allow write: if request.resource.size < 2 * 1024 * 1024
+      //							&& resumeid.size() < 140
+       //             && uniqueid.size() < 140
+        //            && resumeid.matches(".*\\.txt")
+         //           ;
+    //}
+
+
   }
 }

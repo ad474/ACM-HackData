@@ -441,7 +441,12 @@ function updateDb(uniqueid) {
     college3:form1.college3.value,
     number3:form1.number3.value,
     email3:form1.email3.value
-  });
+  }).then(function() {
+    console.log("Document successfully written!");
+  })
+      .catch(function(error) {
+        console.error("Error writing document: ", error);
+      });
 }
 
 
