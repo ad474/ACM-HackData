@@ -652,7 +652,7 @@ body.mobile-nav-active #mobile-nav-toggle {
 --------------------------------------------------------------*/
 
 #about {
-  background: url("../img/new.jpg");
+  background: url("../img/about-bg.jpg");
   background-size: cover;
   overflow: hidden;
   position: relative;
@@ -662,12 +662,17 @@ body.mobile-nav-active #mobile-nav-toggle {
 
 #about:before {
   content: "";
-  background: rgba(28, 28, 28, 0.79);
   position: absolute;
   bottom: 0;
   top: 0;
   left: 0;
   right: 0;
+}
+
+#about:before .timer{
+  color: #fff;
+  background: rgba(28, 28, 28, 1); !important;
+  z-index: -999;
 }
 
 #about h2 {
