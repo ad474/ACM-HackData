@@ -300,8 +300,19 @@ const db=firebase.firestore();
   $('#filename3').on("change", function(event){
     res3 = event.target.files[0];
   });
-
+  function triggerDiv() {
+       var div = document.getElementById("confirmation");
+       div.style.display="block";
+      // div.style.display = div.style.display == "none" ? "block" : "none";
+      //alert("Upload resumes of team members");
+      // document.getElementById('itemm').scrollIntoView();
+  }
+  function disappear(){
+    var div = document.getElementById("confirmation");
+    div.style.display="none";
+  }
 function upfile(teamname){
+  triggerDiv();
   var filename = res1.name;
   var storageRef  = firebase.storage().ref('/resumes/'+teamname+'/' + Date.now()+'1'+ filename);
   var uploadTask  = storageRef.put(res1);
@@ -417,9 +428,28 @@ function updateDb(uniqueid) {
   db.collection('applicants').add({
     uniqueid: uniqueid,
     teamname: form1.teamname.value,
-
+    track:form1.track.value,
+    name1:form1.name1.value,
+    college1:form1.college1.value,
+    number1:form1.number1.value,
+    email1:form1.email1.value,
+    name2:form1.name2.value,
+    college2:form1.college2.value,
+    number2:form1.number2.value,
+    email2:form1.email2.value,
+    name3:form1.name3.value,
+    college3:form1.college3.value,
+    number3:form1.number3.value,
+    email3:form1.email3.value
   });
 }
 
 
+
+
 });
+
+function disappear(){
+  var div = document.getElementById("confirmation");
+  div.style.display="none";
+}

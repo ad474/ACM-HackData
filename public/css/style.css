@@ -1658,11 +1658,16 @@ body.mobile-nav-active #mobile-nav-toggle {
   }
 }
 
-#itemm{
-  display: none;
-  background-color: grey;
-  padding:50px;
-  text-align: center;
+.confirmation{
+  top: 50%;
+    left: 50%;
+    width:30%;
+    height:30%;
+    margin-top: -9em; /*set to a negative number 1/2 of your height*/
+    margin-left: -15em; /*set to a negative number 1/2 of your width*/
+    border: 1px solid #ccc;
+    background-color: #393e46;
+    position:fixed;
 }
 .reg{
   font-size: 1.4em; !important;
