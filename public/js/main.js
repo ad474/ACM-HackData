@@ -290,7 +290,11 @@ const db=firebase.firestore();
   }
   var res1,res2,res3;
   $('#filename').on("change", function(event){
+
     res1 = event.target.files[0];
+    if ( checkfiletype()){
+      
+    }
   });
 
   $('#filename2').on("change", function(event){
@@ -312,7 +316,7 @@ const db=firebase.firestore();
     div.style.display="none";
   }
 function upfile(teamname){
-  triggerDiv();
+  //triggerDiv();
   var filename = res1.name;
   var storageRef  = firebase.storage().ref('/resumes/'+teamname+'/' + Date.now()+'1'+ filename);
   var uploadTask  = storageRef.put(res1);
@@ -335,6 +339,7 @@ function upfile(teamname){
     }
   }, function(error) {
     // Handle unsuccessful uploads
+      alert("ERROR: "+ error);
   }, function() {
     // Handle successful uploads on complete
     // For instance, get the download URL: https://firebasestorage.googleapis.com/...
@@ -370,6 +375,7 @@ function upfile(teamname){
       }
     }, function(error) {
       // Handle unsuccessful uploads
+        alert("ERROR: "+ error);
     }, function() {
       // Handle successful uploads on complete
       // For instance, get the download URL: https://firebasestorage.googleapis.com/...
@@ -408,6 +414,7 @@ function upfile(teamname){
       }
     }, function(error) {
       // Handle unsuccessful uploads
+        alert("ERROR: "+ error);
     }, function() {
       // Handle successful uploads on complete
       // For instance, get the download URL: https://firebasestorage.googleapis.com/...
@@ -442,10 +449,13 @@ function updateDb(uniqueid) {
     number3:form1.number3.value,
     email3:form1.email3.value
   }).then(function() {
+
     console.log("Document successfully written!");
+    triggerDiv();
   })
       .catch(function(error) {
         console.error("Error writing document: ", error);
+        alert("ERROR: "+ error);
       });
 }
 
