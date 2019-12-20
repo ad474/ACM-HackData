@@ -293,7 +293,7 @@ const db=firebase.firestore();
 
     res1 = event.target.files[0];
     if ( checkfiletype()){
-      
+
     }
   });
 
