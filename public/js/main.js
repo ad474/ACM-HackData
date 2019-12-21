@@ -427,10 +427,6 @@ const db=firebase.firestore();
     }
 
   });
-
-
-
-
 /*
   //if (form1) {
     form1.addEventListener('submit', function (e) {
@@ -520,6 +516,8 @@ const db=firebase.firestore();
   }
 function upfile(teamname){
   triggerDiv();
+  document.getElementById("btnPlaceOrder").disabled = true;
+  document.getElementById("btnPlaceOrder").style.background = "grey";
   var filename = res1.name;
   var storageRef  = firebase.storage().ref('/resumes/'+teamname+'/' + Date.now()+'1'+ filename);
   var uploadTask  = storageRef.put(res1);
@@ -652,6 +650,8 @@ function updateDb(uniqueid) {
   console.log('written');
   document.getElementById("confirm1").innerHTML="Registration successful!";
   document.getElementById("confirm2").innerHTML="You will receive a mail in a few days if qualified";
+  document.getElementById("dbcooper").style.display="inline";
+  document.getElementById("confirmation").style.height="230px";
   db.collection('applicants').add({
     uniqueid: uniqueid,
     teamname: form1.teamname.value,
@@ -687,4 +687,23 @@ function disappear(){
   var div = document.getElementById("confirmation");
   div.style.display="none";
 
+  document.getElementById("btnPlaceOrder").disabled = false;
+  document.getElementById("btnPlaceOrder").style.background = "#f82249";
+  //$("myform").get(0).reset();
+  document.getElementById("subject").value="";
+  document.getElementById("name1").value="";
+  document.getElementById("college1").value="";
+  document.getElementById("number1").value="";
+  document.getElementById("email1").value="";
+  $("filename").val('');
+  document.getElementById("name2").value="";
+  document.getElementById("college2").value="";
+  document.getElementById("number2").value="";
+  document.getElementById("email2").value="";
+  $("filename2").val('');
+  document.getElementById("name3").value="";
+  document.getElementById("college3").value="";
+  document.getElementById("number3").value="";
+  document.getElementById("email3").value="";
+  $("filename3").val('');
 }

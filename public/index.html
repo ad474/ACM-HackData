@@ -27,7 +27,7 @@ black  #142F30
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Raleway:300,400,500,700,800" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css?family=Heebo:900&display=swap" rel="stylesheet">
   <!-- Bootstrap CSS File -->
   <link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
@@ -87,34 +87,37 @@ message => alert(message)
     font-size: 15px;
 }
 #clockdiv > div{
-    padding: 10px;
-    border-radius: 7px;
+    padding: 2px;
+    border-radius: 10px;
     /* background: #00BF96; */
-    background:#8bbabb;
+    /* background:#8bbabb; */
+    background:white;
     display: inline-block;
 }
 #clockdiv div > span{
-    padding: 15px;
-    border-radius: 7px;
+    padding: 5px;
+    /* border-radius: 10px; */
     /* background: #00816A; */
-    background:#c7f0db;
+    /* background:#c7f0db; */
+    background: white;
     display: inline-block;
+    font-family: 'Heebo', sans-serif;
 }
 smalltext{
-    padding-top: 5px;
+    /* padding-top: 5px; */
     font-size: 12px;
 }
 
 /* Smartphones (landscape) ----------- */
 @media screen and (device-aspect-ratio: 40/71) {
-  #clockdiv{
+  .bigtext{
     font-size:15px;
   }
 }
 @media only screen
 and (min-width : 321px) {
     /* Styles */
-    #clockdiv{
+    .bigtext{
       font-size:20px;
     }
 }
@@ -123,7 +126,7 @@ and (min-width : 321px) {
 @media only screen
 and (max-width : 320px) {
     /* Styles */
-    #clockdiv{
+    .bigtext{
       font-size:15px;
     }
 }
@@ -134,7 +137,7 @@ and (min-device-width : 768px)
 and (max-device-width : 1024px)
 and (orientation : landscape) {
     /* Styles */
-    #clockdiv{
+    .bigtext{
       font-size:40px;
     }
 }
@@ -145,7 +148,7 @@ and (min-device-width : 768px)
 and (max-device-width : 1024px)
 and (orientation : portrait) {
     /* Styles */
-    #clockdiv{
+    .bigtext{
       font-size:40px;
     }
 }
@@ -154,8 +157,15 @@ and (orientation : portrait) {
 @media only screen
 and (min-width : 1224px) {
     /* Styles */
-    #clockdiv{
-      font-size:35px;
+    .bigtext{
+      font-size:60px;
+    }
+    .tbox{
+      width:110px;
+      margin:3px;
+    }
+    .smalltext{
+      font-size:15px;
     }
 }
 
@@ -163,9 +173,10 @@ and (min-width : 1224px) {
 @media only screen
 and (min-width : 1824px) {
     /* Styles */
-    #clockdiv{
+    .bigtext{
       font-size:40px;
     }
+
 }
 
 /* iPhone 4 ----------- */
@@ -173,7 +184,14 @@ and (min-width : 1824px) {
 only screen and (-webkit-min-device-pixel-ratio : 1.5),
 only screen and (min-device-pixel-ratio : 1.5) {
     /* Styles */
-    #clockdiv{
+    .bigtext{
+      font-size:40px;
+    }
+    .tbox{
+      width:70px;
+      margin:1px;
+    }
+    .smalltext{
       font-size:12px;
     }
 }
@@ -328,27 +346,28 @@ document.getElementById("demo").innerHTML = days + "d "
             </div>
         </div>
             <div class="timer ">
+              <h2 id="demo" style="margin-top:10px;">Days left to event</h2>
               <!-- <h1 class="cd">Countdown Clock</h1> -->
               <div id="clockdiv">
-                <div>
-                  <span class="days" id="day"></span>
-                  <div class="smalltext">Days</div>
+                <div class="tbox">
+                  <span class="days bigtext" id="day" style="color:#BD1550;"></span>
+                  <div class="smalltext" style="color:#BD1550;">Days</div>
                 </div>
-                <div>
-                  <span class="hours" id="hour"></span>
-                  <div class="smalltext">Hours</div>
+                <div class="tbox">
+                  <span class="hours bigtext" id="hour" style="color:#1B676B;"></span>
+                  <div class="smalltext" style="color:#1B676B;">Hours</div>
                 </div>
-                <div>
-                  <span class="minutes" id="minute"></span>
-                  <div class="smalltext">Minutes</div>
+                <div class="tbox">
+                  <span class="minutes bigtext" id="minute"  style="color:#ECBA09;"></span>
+                  <div class="smalltext" style="color:#ECBA09;">Minutes</div>
                 </div>
-                <div style="margin-top:10px;">
-                  <span class="seconds" id="second"></span>
-                  <div class="smalltext">Seconds</div>
+                <div style="margin-top:10px;" class="tbox">
+                  <span class="seconds bigtext" id="second" style="color:#F54828;"></span>
+                  <div class="smalltext" style="color:#F54828;">Seconds</div>
                 </div>
                 </div>
               </div>
-              <p id="demo"></p>
+              <!-- <p id="demo"></p> -->
       </div>
     </section>
 
@@ -1272,7 +1291,7 @@ document.getElementById("demo").innerHTML = days + "d "
             </div>
 
             <div class="text-center">
-              <button type="submit" value="upload">Submit</button></div>
+              <button type="submit" value="upload" id="btnPlaceOrder">Submit</button></div>
             <!-- <input type="submit" value="upload" /> -->
           </form>
         </div>
@@ -1285,7 +1304,7 @@ document.getElementById("demo").innerHTML = days + "d "
   <div id="confirmation" style="display:none;
   position: fixed;
   width: 300px;
-  height: 230px;
+  height: 150px;
   z-index: 15;
   top: 50%;
   left: 50%;
@@ -1301,7 +1320,9 @@ document.getElementById("demo").innerHTML = days + "d "
   border-radius:5px;">
       <p id="confirm1"></p>
       <p id="confirm2"></p>
-      <button style="box-shadow: 0px 1px 0px 0px #1c1b18;
+      <button
+      id="dbcooper"
+      style="box-shadow: 0px 1px 0px 0px #1c1b18;
 	background:linear-gradient(to bottom, #eae0c2 5%, #ccc2a6 100%);
 	background-color:#eae0c2;
 	border-radius:15px;
@@ -1314,7 +1335,8 @@ document.getElementById("demo").innerHTML = days + "d "
 	font-weight:bold;
 	padding:12px 16px;
 	text-decoration:none;
-	text-shadow:0px 1px 0px #ffffff;" onclick="disappear()">OK</button>
+	text-shadow:0px 1px 0px #ffffff;
+  display:none;" onclick="disappear()">OK</button>
     <!-- <form method="POST" enctype="multipart/form-data" action="/fileupload" class="contactForm">
       <input type="file" name="filename" />
       <input type="file" name="filename2" />
