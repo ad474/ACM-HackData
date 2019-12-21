@@ -368,6 +368,10 @@ const db=firebase.firestore();
 
     },
     messages: {
+      teamname: {
+        required: "Please enter a name",
+        minlength: "Min length is 3"
+      },
       name1: {
         required: "Please enter a name",
         minlength: "Please enter a valid name"
@@ -447,11 +451,16 @@ const db=firebase.firestore();
     fileName = res1.name;
     fileName = fileName.toLowerCase();
     fileExtension = fileName.substr((fileName.lastIndexOf('.') + 1));
-    if (fileExtension.localeCompare('pdf') || fileExtension.localeCompare('doc') || fileExtension.localeCompare('docx')){
+    if (!((fileExtension.localeCompare('pdf')===0) || (fileExtension.localeCompare('doc')===0) || (fileExtension.localeCompare('docx')===0))){
       alert("Only doc/docx/pdf extensions are supported");
+      $("#filename").val('');
     }
-    if (size1 > 2)
+    else if (size1 > 2) {
       alert("File size should be less than 2MB");
+      $("#filename").val('');
+    }else {
+      $('#filelabel').html(fileName);
+    }
   });
 
   $('#filename2').on("change", function(event){
@@ -461,11 +470,17 @@ const db=firebase.firestore();
     fileName = res2.name;
     fileName = fileName.toLowerCase();
     fileExtension = fileName.substr((fileName.lastIndexOf('.') + 1));
-    if (fileExtension.localeCompare('pdf') || fileExtension.localeCompare('doc') || fileExtension.localeCompare('docx')){
+    if (!((fileExtension.localeCompare('pdf')===0) || (fileExtension.localeCompare('doc')===0) || (fileExtension.localeCompare('docx')===0))){
       alert("Only doc/docx/pdf extensions are supported");
+      $("#filename2").val('');
     }
-    if (size2 > 2)
+    else if (size2 > 2) {
       alert("File size should be less than 2MB");
+      $("#filename2").val('');
+    }else {
+      $('#filelabel2').html(fileName);
+    }
+
   });
 
   $('#filename3').on("change", function(event){
@@ -476,11 +491,16 @@ const db=firebase.firestore();
     fileName = res3.name;
     fileName = fileName.toLowerCase();
     fileExtension = fileName.substr((fileName.lastIndexOf('.') + 1));
-    if (fileExtension.localeCompare('pdf') || fileExtension.localeCompare('doc') || fileExtension.localeCompare('docx')){
+    if (!((fileExtension.localeCompare('pdf')===0) || (fileExtension.localeCompare('doc')===0) || (fileExtension.localeCompare('docx')===0))){
       alert("Only doc/docx/pdf extensions are supported");
+      $("#filename3").val('');
     }
-    if (size3 > 2)
+    else if (size3 > 2) {
       alert("File size should be less than 2MB");
+      $("#filename3").val('');
+    }else {
+      $('#filelabel3').html(fileName);
+    }
   });
   function triggerDiv() {
        var div = document.getElementById("confirmation");

@@ -1084,10 +1084,15 @@ document.getElementById("demo").innerHTML = days + "d "
                 <!-- <div class="validation"></div> -->
               </div>
             </div>
-            <div class="form-group col-md-6">
-              <label>Enter resume of member 1</label>
-              <input id="filename" type="file" name="filename" required/>
+            <div class="custom-file col-md-12">
+
+              <input id="filename" type="file" name="filename3"  class="custom-file-input" required/>
+
+              <label id="filelabel" for="filename" class="custom-file-label">Resume of 1<sup>st</sup> Member</label>
             </div>
+            <small id="" class="text-muted">
+              Must be less than 2MB & of type pdf,doc or docx only!
+            </small>
             <!-- <div class="form-group col-md-6">
               <label>Resume of member 1</label>
               <input type="file" name="cv1" class="form-control" id="cv1" required />
@@ -1115,10 +1120,15 @@ document.getElementById("demo").innerHTML = days + "d "
                 <!-- <div class="validation"></div> -->
               </div>
             </div>
-            <div class="form-group col-md-6">
-              <label>Enter resume of member 2</label>
-              <input id="filename2" type="file" name="filename2" required/>
+            <div class="custom-file col-md-12">
+
+              <input id="filename2" type="file" name="filename3"  class="custom-file-input" required/>
+
+              <label id="filelabel2" for="filename2" class="custom-file-label">Resume of 2<sup>nd</sup> Member</label>
             </div>
+            <small id="" class="text-muted">
+              Must be less than 2MB & of type pdf,doc or docx only!
+            </small>
             <!-- <div class="form-group col-md-6">
               <label>Resume of member 2</label>
               <input type="file" name="cv2" class="form-control" id="cv2" required />
@@ -1147,10 +1157,15 @@ document.getElementById("demo").innerHTML = days + "d "
               </div>
 
             </div>
-            <div class="form-group col-md-6">
-              <label>Enter resume of member 2</label>
-              <input id="filename3" type="file" name="filename3" required/>
+            <div class="custom-file col-md-12">
+
+              <input id="filename3" type="file" name="filename3"  class="custom-file-input" required/>
+
+              <label id="filelabel3" for="filename3" class="custom-file-label">Resume of 3<sup>rd</sup> Member</label>
             </div>
+            <small id="" class="text-muted">
+              Must be less than 2MB & of type pdf,doc or docx only!
+            </small>
             <!-- <div class="form-group col-md-6">
               <label>Resume of member 3</label>
               <input type="file" name="cv3" class="form-control" id="cv3" required />
@@ -1165,6 +1180,9 @@ document.getElementById("demo").innerHTML = days + "d "
               <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
               <div class="validation"></div>
             </div> -->
+            <div class="form-group">
+              <div class="g-recaptcha" data-sitekey="your_site_key"></div>
+            </div>
             <div class="text-center">
               <button type="submit" value="upload">Submit</button></div>
             <!-- <input type="submit" value="upload" /> -->
@@ -1324,6 +1342,10 @@ document.getElementById("demo").innerHTML = days + "d "
 
   <!-- My scripts -->
   <script src="js/jQuery_Validation.js"></script> <!-- Validation rules -->
+
+
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+
 
 </body>
 
