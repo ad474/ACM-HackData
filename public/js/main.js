@@ -404,6 +404,8 @@ function upfile(teamname){
       // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
       var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
       console.log('Upload is ' + progress + '% done');
+      document.getElementById("confirm1").innerHTML="Registration is "+Math.round(progress * 100) / 100+"% done";
+      document.getElementById("confirm2").innerHTML="Please do not close the tab";
       switch (snapshot.state) {
         case firebase.storage.TaskState.PAUSED: // or 'paused'
           console.log('Upload is paused');
@@ -432,6 +434,8 @@ function upfile(teamname){
 
 function updateDb(uniqueid) {
   console.log('written');
+  document.getElementById("confirm1").innerHTML="Registration successful!";
+  document.getElementById("confirm2").innerHTML="You will receive a mail in a few days if qualified";
   db.collection('applicants').add({
     uniqueid: uniqueid,
     teamname: form1.teamname.value,
@@ -455,7 +459,9 @@ function updateDb(uniqueid) {
   })
       .catch(function(error) {
         console.error("Error writing document: ", error);
-        alert("ERROR: "+ error);
+        document.getElementById("confirm1").innerHTML="Some error occurred while registration";
+        document.getElementById("confirm2").innerHTML="Check try again after some time";
+        //alert("ERROR: "+ error);
       });
 }
 
