@@ -519,6 +519,7 @@ const db=firebase.firestore();
 
   }
 function upfile(teamname){
+  triggerDiv();
   var filename = res1.name;
   var storageRef  = firebase.storage().ref('/resumes/'+teamname+'/' + Date.now()+'1'+ filename);
   var uploadTask  = storageRef.put(res1);
@@ -531,6 +532,8 @@ function upfile(teamname){
     // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
     var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
     console.log('Upload is ' + progress + '% done');
+    document.getElementById("confirm1").innerHTML="Registration is "+Math.round(progress * 100) / 100+"% done";
+    document.getElementById("confirm2").innerHTML="Please do not close the tab";
     switch (snapshot.state) {
       case firebase.storage.TaskState.PAUSED: // or 'paused'
         console.log('Upload is paused');
@@ -541,7 +544,9 @@ function upfile(teamname){
     }
   }, function(error) {
     // Handle unsuccessful uploads
-      alert("ERROR: 'Resume 1' Either the file exceeds 2MB or the file type is not supported(only doc/docx/pdf are supported)");
+      //alert("ERROR: 'Resume 1' Either the file exceeds 2MB or the file type is not supported(only doc/docx/pdf are supported)");
+      document.getElementById("confirm1").innerHTML="Either the file exceeds 2MB or the file type is not supported";
+      document.getElementById("confirm2").innerHTML="Please try again";
       //console.log(error);
   }, function() {
     // Handle successful uploads on complete
@@ -568,6 +573,8 @@ function upfile(teamname){
       // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
       var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
       console.log('Upload is ' + progress + '% done');
+      document.getElementById("confirm1").innerHTML="Registration is "+Math.round(progress * 100) / 100+"% done";
+      document.getElementById("confirm2").innerHTML="Please do not close the tab";
       switch (snapshot.state) {
         case firebase.storage.TaskState.PAUSED: // or 'paused'
           console.log('Upload is paused');
@@ -578,7 +585,9 @@ function upfile(teamname){
       }
     }, function(error) {
       // Handle unsuccessful uploads
-      alert("ERROR: 'Resume 2' Either the file exceeds 2MB or the file type is not supported(only doc/docx/pdf are supported)");
+      //alert("ERROR: 'Resume 2' Either the file exceeds 2MB or the file type is not supported(only doc/docx/pdf are supported)");
+      document.getElementById("confirm1").innerHTML="Either the file exceeds 2MB or the file type is not supported";
+      document.getElementById("confirm2").innerHTML="Please try again";
       //console.log(error)
     }, function() {
       // Handle successful uploads on complete
@@ -620,8 +629,9 @@ function upfile(teamname){
       }
     }, function(error) {
       // Handle unsuccessful uploads
-
-        alert("ERROR: 'Resume 3' Either the file exceeds 2MB or the file type is not supported(only doc/docx/pdf are supported)");
+        //alert("ERROR: 'Resume 3' Either the file exceeds 2MB or the file type is not supported(only doc/docx/pdf are supported)");
+        document.getElementById("confirm1").innerHTML="Either the file exceeds 2MB or the file type is not supported";
+        document.getElementById("confirm2").innerHTML="Please try again";
         //console.log(error);
     }, function() {
       // Handle successful uploads on complete
@@ -661,23 +671,20 @@ function updateDb(uniqueid) {
   }).then(function() {
 
     console.log("Document successfully written!");
-    triggerDiv();
+
   })
       .catch(function(error) {
         //console.error("Error writing document: ", error);
-        alert("ERROR: Error in creating a new entry!\nPlease screenshot this and mail us at acm@snu.edu.in");
+        //alert("ERROR: Error in creating a new entry!\nPlease screenshot this and mail us at acm@snu.edu.in");
         document.getElementById("confirm1").innerHTML="Some error occurred while registration";
-        document.getElementById("confirm2").innerHTML="Check try again after some time";
+        document.getElementById("confirm2").innerHTML="Screenshot this and send us a mail at acm@snu.edu.in";
         //alert("ERROR: "+ error);
       });
 }
-
-
-
-
 });
 
 function disappear(){
   var div = document.getElementById("confirmation");
   div.style.display="none";
+
 }

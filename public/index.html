@@ -36,7 +36,7 @@ black  #142F30
   <link href="lib/animate/animate.min.css" rel="stylesheet">
   <link href="lib/venobox/venobox.css" rel="stylesheet">
   <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR&display=swap" rel="stylesheet">
   <!-- Main Stylesheet File -->
   <link href="css/style.css" rel="stylesheet">
 
@@ -79,12 +79,12 @@ message => alert(message)
   margin: 40px 0px 20px;
 }
  #clockdiv{
-    font-family: sans-serif;
+    font-family: 'Noto Sans KR', sans-serif;
     color: #000;
     display: inline-block;
     font-weight: 150;
     text-align: center;
-    font-size: 25px;
+    font-size: 15px;
 }
 #clockdiv > div{
     padding: 10px;
@@ -103,6 +103,79 @@ message => alert(message)
 smalltext{
     padding-top: 5px;
     font-size: 12px;
+}
+
+/* Smartphones (landscape) ----------- */
+@media screen and (device-aspect-ratio: 40/71) {
+  #clockdiv{
+    font-size:15px;
+  }
+}
+@media only screen
+and (min-width : 321px) {
+    /* Styles */
+    #clockdiv{
+      font-size:20px;
+    }
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen
+and (max-width : 320px) {
+    /* Styles */
+    #clockdiv{
+      font-size:15px;
+    }
+}
+
+/* iPads (landscape) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : landscape) {
+    /* Styles */
+    #clockdiv{
+      font-size:40px;
+    }
+}
+
+/* iPads (portrait) ----------- */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait) {
+    /* Styles */
+    #clockdiv{
+      font-size:40px;
+    }
+}
+
+/* Desktops and laptops ----------- */
+@media only screen
+and (min-width : 1224px) {
+    /* Styles */
+    #clockdiv{
+      font-size:35px;
+    }
+}
+
+/* Large screens ----------- */
+@media only screen
+and (min-width : 1824px) {
+    /* Styles */
+    #clockdiv{
+      font-size:40px;
+    }
+}
+
+/* iPhone 4 ----------- */
+@media
+only screen and (-webkit-min-device-pixel-ratio : 1.5),
+only screen and (min-device-pixel-ratio : 1.5) {
+    /* Styles */
+    #clockdiv{
+      font-size:12px;
+    }
 }
 </style>
 
@@ -254,28 +327,28 @@ document.getElementById("demo").innerHTML = days + "d "
                   </div>
             </div>
         </div>
-        <div class="timer p-5">
-          <!-- <h1 class="cd">Countdown Clock</h1> -->
-        <div id="clockdiv">
-        <div>
-          <span class="days" id="day"></span>
-          <div class="smalltext">Days</div>
-        </div>
-        <div>
-          <span class="hours" id="hour"></span>
-          <div class="smalltext">Hours</div>
-        </div>
-        <div>
-          <span class="minutes" id="minute"></span>
-          <div class="smalltext">Minutes</div>
-        </div>
-        <div style="margin-top:10px;">
-          <span class="seconds" id="second"></span>
-          <div class="smalltext">Seconds</div>
-        </div>
-        </div>
-        </div>
-        <p id="demo"></p>
+            <div class="timer ">
+              <!-- <h1 class="cd">Countdown Clock</h1> -->
+              <div id="clockdiv">
+                <div>
+                  <span class="days" id="day"></span>
+                  <div class="smalltext">Days</div>
+                </div>
+                <div>
+                  <span class="hours" id="hour"></span>
+                  <div class="smalltext">Hours</div>
+                </div>
+                <div>
+                  <span class="minutes" id="minute"></span>
+                  <div class="smalltext">Minutes</div>
+                </div>
+                <div style="margin-top:10px;">
+                  <span class="seconds" id="second"></span>
+                  <div class="smalltext">Seconds</div>
+                </div>
+                </div>
+              </div>
+              <p id="demo"></p>
       </div>
     </section>
 
