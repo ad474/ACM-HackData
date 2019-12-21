@@ -282,27 +282,205 @@ const db=firebase.firestore();
   var link1,link2,link3;
 
   const form1 = document.getElementById("myform");
-  if (form1) {
+
+
+  $.validator.setDefaults ({
+    errorClass: 'text-danger',
+    highlight: function (element) {
+      $(element)
+          .closest('.form-control')
+          .addClass('is-invalid');
+    },
+    unhighlight: function (element) {
+      $(element)
+          .closest('.form-control')
+          .removeClass('is-invalid');
+    }
+  });
+
+
+  $("#myform").validate({
+    rules: {
+      teamname:{
+        required: true,
+        minlength: 3,
+
+      },
+      name1:{
+        required: true,
+        minlength: 2,
+
+      },
+      name2:{
+        required: true,
+        minlength: 2,
+
+      },
+      name3:{
+        required: true,
+        minlength: 2,
+
+      },
+      college1:{
+        required: true,
+        minlength: 3,
+
+      },
+      college2:{
+        required: true,
+        minlength: 3,
+
+      },
+      college3:{
+        required: true,
+        minlength: 3,
+
+      },
+
+      email1:{
+        required: true,
+        email: true
+      },
+      email2:{
+        required: true,
+        email: true
+      },
+      email3:{
+        required: true,
+        email: true
+      },
+      number1:{
+        required: true,
+        minlength: 10,
+        maxlength: 11
+      },
+      number2:{
+        required: true,
+        minlength: 10,
+        maxlength: 11
+      },
+      number3:{
+        required: true,
+        minlength: 10,
+        maxlength: 11
+      }
+
+
+    },
+    messages: {
+      name1: {
+        required: "Please enter a name",
+        minlength: "Please enter a valid name"
+      },
+      name2: {
+        required: "Please enter a name",
+        minlength: "Please enter a valid name"
+      },
+      name3: {
+        required: "Please enter a name",
+        minlength: "Please enter a valid name"
+      },
+      number1: {
+        required: "Please enter a name",
+        length: "Please enter a valid number",
+        maxlength: "Please enter a valid number"
+      },
+      number2: {
+        required: "Please enter a name",
+        minlength: "Please enter a valid number",
+        maxlength: "Please enter a valid number"
+      },
+      number3: {
+        required: "Please enter a name",
+        length: "Please enter a valid number",
+        maxlength: "Please enter a valid number"
+      },
+      college1: {
+        required: "Please enter a name",
+        minlength: "Please enter a valid name"
+      },
+      college2: {
+        required: "Please enter a name",
+        minlength: "Please enter a valid name"
+      },
+      college3: {
+        required: "Please enter a name",
+        minlength: "Please enter a valid name"
+      },
+      email: {
+        required: "Please enter an email",
+        email: "Please enter a valid email"
+      },
+      pass: {
+        required: "Please enter a password",
+        minlength: "Password must be atleast 4 characters long"
+      }
+    },
+    submitHandler: function(form) {
+      //form.submit();
+      //form.preventDefault();
+      upfile(form1.teamname.value + Date.now());
+    }
+
+  });
+
+
+
+
+/*
+  //if (form1) {
     form1.addEventListener('submit', function (e) {
+
       e.preventDefault();
       upfile(form1.teamname.value + Date.now());
     });
-  }
+  //}
+
+ */
   var res1,res2,res3;
   $('#filename').on("change", function(event){
 
     res1 = event.target.files[0];
-    if ( checkfiletype()){
+    var size1 = res1.size/(1024*1024);
 
+    var fileName, fileExtension;
+    fileName = res1.name;
+    fileName = fileName.toLowerCase();
+    fileExtension = fileName.substr((fileName.lastIndexOf('.') + 1));
+    if (fileExtension.localeCompare('pdf') || fileExtension.localeCompare('doc') || fileExtension.localeCompare('docx')){
+      alert("Only doc/docx/pdf extensions are supported");
     }
+    if (size1 > 2)
+      alert("File size should be less than 2MB");
   });
 
   $('#filename2').on("change", function(event){
     res2 = event.target.files[0];
+    var size2 = res2.size/(1024*1024);
+    var fileName, fileExtension;
+    fileName = res2.name;
+    fileName = fileName.toLowerCase();
+    fileExtension = fileName.substr((fileName.lastIndexOf('.') + 1));
+    if (fileExtension.localeCompare('pdf') || fileExtension.localeCompare('doc') || fileExtension.localeCompare('docx')){
+      alert("Only doc/docx/pdf extensions are supported");
+    }
+    if (size2 > 2)
+      alert("File size should be less than 2MB");
   });
 
   $('#filename3').on("change", function(event){
     res3 = event.target.files[0];
+    var size3 = res3.size/(1024*1024);
+
+    var fileName, fileExtension;
+    fileName = res3.name;
+    fileName = fileName.toLowerCase();
+    fileExtension = fileName.substr((fileName.lastIndexOf('.') + 1));
+    if (fileExtension.localeCompare('pdf') || fileExtension.localeCompare('doc') || fileExtension.localeCompare('docx')){
+      alert("Only doc/docx/pdf extensions are supported");
+    }
+    if (size3 > 2)
+      alert("File size should be less than 2MB");
   });
   function triggerDiv() {
        var div = document.getElementById("confirmation");
@@ -315,8 +493,12 @@ const db=firebase.firestore();
     var div = document.getElementById("confirmation");
     div.style.display="none";
   }
+  function checkfiles() {
+
+
+
+  }
 function upfile(teamname){
-  //triggerDiv();
   var filename = res1.name;
   var storageRef  = firebase.storage().ref('/resumes/'+teamname+'/' + Date.now()+'1'+ filename);
   var uploadTask  = storageRef.put(res1);
@@ -339,7 +521,8 @@ function upfile(teamname){
     }
   }, function(error) {
     // Handle unsuccessful uploads
-      alert("ERROR: "+ error);
+      alert("ERROR: 'Resume 1' Either the file exceeds 2MB or the file type is not supported(only doc/docx/pdf are supported)");
+      //console.log(error);
   }, function() {
     // Handle successful uploads on complete
     // For instance, get the download URL: https://firebasestorage.googleapis.com/...
@@ -375,7 +558,8 @@ function upfile(teamname){
       }
     }, function(error) {
       // Handle unsuccessful uploads
-        alert("ERROR: "+ error);
+      alert("ERROR: 'Resume 2' Either the file exceeds 2MB or the file type is not supported(only doc/docx/pdf are supported)");
+      //console.log(error)
     }, function() {
       // Handle successful uploads on complete
       // For instance, get the download URL: https://firebasestorage.googleapis.com/...
@@ -416,7 +600,9 @@ function upfile(teamname){
       }
     }, function(error) {
       // Handle unsuccessful uploads
-        alert("ERROR: "+ error);
+
+        alert("ERROR: 'Resume 3' Either the file exceeds 2MB or the file type is not supported(only doc/docx/pdf are supported)");
+        //console.log(error);
     }, function() {
       // Handle successful uploads on complete
       // For instance, get the download URL: https://firebasestorage.googleapis.com/...
@@ -458,7 +644,8 @@ function updateDb(uniqueid) {
     triggerDiv();
   })
       .catch(function(error) {
-        console.error("Error writing document: ", error);
+        //console.error("Error writing document: ", error);
+        alert("ERROR: Error in creating a new entry!\nPlease screenshot this and mail us at acm@snu.edu.in");
         document.getElementById("confirm1").innerHTML="Some error occurred while registration";
         document.getElementById("confirm2").innerHTML="Check try again after some time";
         //alert("ERROR: "+ error);
