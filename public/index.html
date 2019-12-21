@@ -105,6 +105,16 @@ smalltext{
     font-size: 12px;
 }
 </style>
+
+  <script type="text/javascript">
+    function dataCallback(response) {
+      console.log("dataCallback", response)
+      window.location.href = "/checkRecaptcha?response=" + encodeURIComponent(response)
+    }
+    function dataExpiredCallback() {
+      console.log("dataExpiredCallback")
+    }
+  </script>
 </head>
 
 <body>
@@ -1184,7 +1194,8 @@ document.getElementById("demo").innerHTML = days + "d "
               <div class="validation"></div>
             </div> -->
             <div class="form-group text-center">
-              <div class="g-recaptcha" data-sitekey="6LeOCskUAAAAAAN-mhMUFl3FU5MtUvE2XJQ_Isye"></div>
+              <div class="g-recaptcha" data-sitekey="6LeOCskUAAAAAAN-mhMUFl3FU5MtUvE2XJQ_Isye" data-callback="dataCallback"
+              data-expired-callback="dataExpiredCallback"></div>
             </div>
 
             <div class="text-center">
