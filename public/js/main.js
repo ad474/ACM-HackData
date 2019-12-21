@@ -532,7 +532,7 @@ function upfile(teamname){
     // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
     var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
     console.log('Upload is ' + progress + '% done');
-    document.getElementById("confirm1").innerHTML="Registration is "+Math.round(progress * 100) / 100+"% done";
+    document.getElementById("confirm1").innerHTML="Uploading resume 1: "+Math.round(progress * 100) / 100+"% done";
     document.getElementById("confirm2").innerHTML="Please do not close the tab";
     switch (snapshot.state) {
       case firebase.storage.TaskState.PAUSED: // or 'paused'
@@ -573,7 +573,7 @@ function upfile(teamname){
       // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
       var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
       console.log('Upload is ' + progress + '% done');
-      document.getElementById("confirm1").innerHTML="Registration is "+Math.round(progress * 100) / 100+"% done";
+      document.getElementById("confirm1").innerHTML="Uploading Resume 2: "+Math.round(progress * 100) / 100+"% done";
       document.getElementById("confirm2").innerHTML="Please do not close the tab";
       switch (snapshot.state) {
         case firebase.storage.TaskState.PAUSED: // or 'paused'
@@ -617,7 +617,7 @@ function upfile(teamname){
       // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
       var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
       console.log('Upload is ' + progress + '% done');
-      document.getElementById("confirm1").innerHTML="Registration is "+Math.round(progress * 100) / 100+"% done";
+      document.getElementById("confirm1").innerHTML="Uploading Resume 3: "+Math.round(progress * 100) / 100+"% done";
       document.getElementById("confirm2").innerHTML="Please do not close the tab";
       switch (snapshot.state) {
         case firebase.storage.TaskState.PAUSED: // or 'paused'
