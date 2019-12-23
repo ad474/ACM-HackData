@@ -653,20 +653,21 @@ function updateDb(uniqueid) {
   document.getElementById("dbcooper").style.display="inline";
   document.getElementById("confirmation").style.height="230px";
   db.collection('applicants').add({
+    timestamp: Date.now(),
     uniqueid: uniqueid,
     teamname: form1.teamname.value,
     track:form1.track.value,
     name1:form1.name1.value,
     college1:form1.college1.value,
-    number1:form1.number1.value,
+    number1:parseInt(form1.number1.value,10),
     email1:form1.email1.value,
     name2:form1.name2.value,
     college2:form1.college2.value,
-    number2:form1.number2.value,
+    number2:parseInt(form1.number2.value,10),
     email2:form1.email2.value,
     name3:form1.name3.value,
     college3:form1.college3.value,
-    number3:form1.number3.value,
+    number3:parseInt(form1.number3.value,10),
     email3:form1.email3.value
   }).then(function() {
 

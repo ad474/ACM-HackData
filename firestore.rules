@@ -1,9 +1,44 @@
 rules_version = '2';
 service cloud.firestore {
   match /databases/{database}/documents {
-    match /{document=**} {
+    match /applicants/{document} {
       allow read: if false;
-       allow write: if true;
+      allow update: if false;
+      allow delete: if false;
+      allow create: if isValid();
+
     }
+  }
+
+  function isValid(){
+  	return request.resource.data.name1 is string
+    		&& request.resource.data.name2 is string
+        && request.resource.data.name3 is string
+        && request.resource.data.email1 is string
+        && request.resource.data.email2 is string
+        && request.resource.data.email3 is string
+        && request.resource.data.college1 is string
+        && request.resource.data.college2 is string
+        && request.resource.data.college3 is string
+        && request.resource.data.number1 is int
+        && request.resource.data.number2 is int
+        && request.resource.data.number3 is int
+        && request.resource.data.timestamp is int
+        && request.resource.data.uniqueid is string
+        && request.resource.data.name1.size() < 50
+        && request.resource.data.name2.size() < 50
+        && request.resource.data.name3.size() < 50
+        && request.resource.data.college1.size() < 50
+        && request.resource.data.college2.size() < 50
+        && request.resource.data.college3.size() < 50
+        && request.resource.data.email1.size() < 75
+        && request.resource.data.email2.size() < 75
+        && request.resource.data.email3.size() < 75
+        && request.resource.data.number1.size() < 15
+      	&& request.resource.data.number2.size() < 15
+        && request.resource.data.number3.size() < 15
+        && request.resource.data.timestamp.size() < 90
+        && request.resource.data.uniqueid.size() < 100
+        && request.resource.data.keys().hasOnly(['name1','name2','name3','college1','college2','college3','email1','email2','email3','timestamp','number1','number2','number3']);
   }
 }

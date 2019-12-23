@@ -64,137 +64,136 @@ message => alert(message)
     License: https://bootstrapmade.com/license/
   ======================================================= -->
 
-  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
   <style>
-.timer{
-    text-align: center;
-    /* background: #00ECB9; */
-  font-family: sans-serif;
-  font-weight: 100;
-}
-.cd{
-  color: #396;
-  font-weight: 100;
-  font-size: 40px;
-  margin: 40px 0px 20px;
-}
- #clockdiv{
-    font-family: 'Noto Sans KR', sans-serif;
-    color: #000;
-    display: inline-block;
-    font-weight: 150;
-    text-align: center;
-    font-size: 15px;
-}
-#clockdiv > div{
-    padding: 2px;
-    border-radius: 10px;
-    /* background: #00BF96; */
-    /* background:#8bbabb; */
-    background:url("img/bgimg.jpg") no-repeat;
-    display: inline-block;
-}
-#clockdiv div > span{
-    padding: 5px;
-    /* border-radius: 10px; */
-    /* background: #00816A; */
-    /* background:#c7f0db; */
-    //background: url("img/bgimg.jpg") no-repeat;
-    display: inline-block;
-    font-family: 'Heebo', sans-serif;
-}
-smalltext{
-    /* padding-top: 5px; */
-    font-size: 12px;
-}
-
-/* Smartphones (landscape) ----------- */
-@media screen and (device-aspect-ratio: 40/71) {
-  .bigtext{
-    font-size:15px;
-  }
-}
-@media only screen
-and (min-width : 321px) {
-    /* Styles */
-    .bigtext{
-      font-size:20px;
+    .timer{
+        text-align: center;
+        /* background: #00ECB9; */
+      font-family: sans-serif;
+      font-weight: 100;
     }
-}
-
-/* Smartphones (portrait) ----------- */
-@media only screen
-and (max-width : 320px) {
-    /* Styles */
-    .bigtext{
-      font-size:15px;
+    .cd{
+      color: #396;
+      font-weight: 100;
+      font-size: 40px;
+      margin: 40px 0px 20px;
     }
-}
-
-/* iPads (landscape) ----------- */
-@media only screen
-and (min-device-width : 768px)
-and (max-device-width : 1024px)
-and (orientation : landscape) {
-    /* Styles */
-    .bigtext{
-      font-size:40px;
+     #clockdiv{
+        font-family: 'Noto Sans KR', sans-serif;
+        color: #000;
+        display: inline-block;
+        font-weight: 150;
+        text-align: center;
+        font-size: 15px;
     }
-}
-
-/* iPads (portrait) ----------- */
-@media only screen
-and (min-device-width : 768px)
-and (max-device-width : 1024px)
-and (orientation : portrait) {
-    /* Styles */
-    .bigtext{
-      font-size:40px;
+    #clockdiv > div{
+        padding: 2px;
+        border-radius: 10px;
+        /* background: #00BF96; */
+        /* background:#8bbabb; */
+        background:url("img/bgimg.jpg") no-repeat;
+        display: inline-block;
     }
-}
-
-/* Desktops and laptops ----------- */
-@media only screen
-and (min-width : 1224px) {
-    /* Styles */
-    .bigtext{
-      font-size:60px;
+    #clockdiv div > span{
+        padding: 5px;
+        /* border-radius: 10px; */
+        /* background: #00816A; */
+        /* background:#c7f0db; */
+        //background: url("img/bgimg.jpg") no-repeat;
+        display: inline-block;
+        font-family: 'Heebo', sans-serif;
     }
-    .tbox{
-      width:110px;
-      margin:3px;
-    }
-    .smalltext{
-      font-size:15px;
-    }
-}
-
-/* Large screens ----------- */
-@media only screen
-and (min-width : 1824px) {
-    /* Styles */
-    .bigtext{
-      font-size:40px;
+    smalltext{
+        /* padding-top: 5px; */
+        font-size: 12px;
     }
 
-}
+    /* Smartphones (landscape) ----------- */
+    @media screen and (device-aspect-ratio: 40/71) {
+      .bigtext{
+        font-size:15px;
+      }
+    }
+    @media only screen
+    and (min-width : 321px) {
+        /* Styles */
+        .bigtext{
+          font-size:20px;
+        }
+    }
 
-/* iPhone 4 ----------- */
-@media
-only screen and (-webkit-min-device-pixel-ratio : 1.5),
-only screen and (min-device-pixel-ratio : 1.5) {
-    /* Styles */
-    .bigtext{
-      font-size:40px;
+    /* Smartphones (portrait) ----------- */
+    @media only screen
+    and (max-width : 320px) {
+        /* Styles */
+        .bigtext{
+          font-size:15px;
+        }
     }
-    .tbox{
-      width:70px;
-      margin:1px;
+
+    /* iPads (landscape) ----------- */
+    @media only screen
+    and (min-device-width : 768px)
+    and (max-device-width : 1024px)
+    and (orientation : landscape) {
+        /* Styles */
+        .bigtext{
+          font-size:40px;
+        }
     }
-    .smalltext{
-      font-size:12px;
+
+    /* iPads (portrait) ----------- */
+    @media only screen
+    and (min-device-width : 768px)
+    and (max-device-width : 1024px)
+    and (orientation : portrait) {
+        /* Styles */
+        .bigtext{
+          font-size:40px;
+        }
     }
-}
+
+    /* Desktops and laptops ----------- */
+    @media only screen
+    and (min-width : 1224px) {
+        /* Styles */
+        .bigtext{
+          font-size:60px;
+        }
+        .tbox{
+          width:110px;
+          margin:3px;
+        }
+        .smalltext{
+          font-size:15px;
+        }
+    }
+
+    /* Large screens ----------- */
+    @media only screen
+    and (min-width : 1824px) {
+        /* Styles */
+        .bigtext{
+          font-size:40px;
+        }
+
+    }
+
+    /* iPhone 4 ----------- */
+    @media
+    only screen and (-webkit-min-device-pixel-ratio : 1.5),
+    only screen and (min-device-pixel-ratio : 1.5) {
+        /* Styles */
+        .bigtext{
+          font-size:40px;
+        }
+        .tbox{
+          width:70px;
+          margin:1px;
+        }
+        .smalltext{
+          font-size:12px;
+        }
+    }
 </style>
 
   <script type="text/javascript">
