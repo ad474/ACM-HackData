@@ -107,7 +107,7 @@ jQuery(document).ready(function( $ ) {
 
         $('html, body').animate({
           scrollTop: target.offset().top - top_space
-        }, 1500, 'easeInOutExpo');
+        }, 0, 'easeInOutExpo');
 
         if ($(this).parents('.nav-menu').length) {
           $('.nav-menu .menu-active').removeClass('menu-active');
@@ -221,46 +221,6 @@ particlesJS("particles-js", {
 
     }
   },
-  "interactivity": {
-    "detect_on": "canvas",
-    "events": {
-      "onhover": {
-        "enable": true,
-        "mode": "grab"
-      },
-      "onclick": {
-        "enable": true,
-        "mode": "push"
-
-      },
-      "resize": true
-    },
-    "modes": {
-      "grab": {
-        "distance": 140,
-        "line_linked": {
-          "opacity": 1
-        }
-      },
-      "bubble": {
-        "distance": 300,
-        "size": 70,
-        "duration": 2,
-        "opacity": 8,
-        "speed": 3
-      },
-      "repulse": {
-        "distance": 500,
-        "duration": 0.4
-      },
-      "push": {
-        "particles_nb": 4
-      },
-      "remove": {
-        "particles_nb": 2
-      }
-    }
-  },
   "retina_detect": true
 
 });
@@ -279,7 +239,6 @@ particlesJS("particles-js", {
   });
 
 const db=firebase.firestore();
-  var link1,link2,link3;
 
   const form1 = document.getElementById("myform");
 
