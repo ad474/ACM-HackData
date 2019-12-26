@@ -383,6 +383,8 @@ const db=firebase.firestore();
       //form.submit();
       //form.preventDefault();
       upfile(form1.teamname.value + Date.now());
+      $('#btnPlaceOrder').disable();
+
     }
 
   });
