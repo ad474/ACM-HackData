@@ -322,7 +322,8 @@ const db=firebase.firestore();
         required: true,
         minlength: 10,
         maxlength: 11
-      }
+      },
+
 
 
     },
@@ -378,12 +379,13 @@ const db=firebase.firestore();
         required: "Please enter a password",
         minlength: "Password must be atleast 4 characters long"
       }
+
     },
     submitHandler: function(form) {
       //form.submit();
       //form.preventDefault();
       upfile(form1.teamname.value + Date.now());
-      $('#btnPlaceOrder').disable();
+      $('#btnPlaceOrder').attr("disabled", true);
 
     }
 
@@ -634,6 +636,7 @@ function updateDb(uniqueid) {
 
     console.log("Document successfully written!");
 
+
   })
       .catch(function(error) {
         //console.error("Error writing document: ", error);
@@ -641,6 +644,7 @@ function updateDb(uniqueid) {
         document.getElementById("confirm1").innerHTML="Some error occurred while registration";
         document.getElementById("confirm2").innerHTML="Screenshot this and send us a mail at acm@snu.edu.in";
         //alert("ERROR: "+ error);
+        $('#btnPlaceOrder').attr("disabled", false);
       });
 }
 });
