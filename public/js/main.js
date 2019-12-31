@@ -622,15 +622,15 @@ function updateDb(uniqueid) {
     track:form1.track.value,
     name1:form1.name1.value,
     college1:form1.college1.value,
-    number1:parseInt(form1.number1.value,10),
+    number1:form1.number1.value,
     email1:form1.email1.value,
     name2:form1.name2.value,
     college2:form1.college2.value,
-    number2:parseInt(form1.number2.value,10),
+    number2:form1.number2.value,
     email2:form1.email2.value,
     name3:form1.name3.value,
     college3:form1.college3.value,
-    number3:parseInt(form1.number3.value,10),
+    number3:form1.number3.value,
     email3:form1.email3.value
   }).then(function() {
 
@@ -643,7 +643,7 @@ function updateDb(uniqueid) {
         //alert("ERROR: Error in creating a new entry!\nPlease screenshot this and mail us at acm@snu.edu.in");
         document.getElementById("confirm1").innerHTML="Some error occurred while registration";
         document.getElementById("confirm2").innerHTML="Screenshot this and send us a mail at acm@snu.edu.in";
-        //alert("ERROR: "+ error);
+        alert("ERROR: "+ error);
         $('#btnPlaceOrder').attr("disabled", false);
       });
 }
@@ -673,3 +673,19 @@ function disappear(){
   document.getElementById("email3").value="";
   $("filename3").val('');
 }
+
+
+window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('btnPljjaceOrder', {
+  'size': 'invisible',
+  'callback': (response) => {
+    // reCAPTCHA solved, allow signInWithPhoneNumber.
+    // ...
+    console.log(response);
+  },
+  'expired-callback': () => {
+    // Response expired. Ask user to solve reCAPTCHA again.
+    // ...
+    console.log("exp recatcha");
+  }
+});
+window.recaptchaVerifier.render();

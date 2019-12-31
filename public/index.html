@@ -758,7 +758,7 @@ document.getElementById("demo").innerHTML = days + "d "
             <input id="filename" type="file" name="filename3"  class="custom-file-input" required/>
             <label id="filelabel" for="filename" class="custom-file-label">Resume of 1<sup>st</sup> Member</label>
           </div>
-          <small id="" class="text-muted">
+          <small class="text-muted">
             Must be less than 2MB & of type pdf,doc or docx only!
           </small>
           <div class="m-3"></div>
@@ -851,10 +851,6 @@ document.getElementById("demo").innerHTML = days + "d "
             <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
             <div class="validation"></div>
           </div> -->
-          <div class="form-group text-center">
-            <div class="g-recaptcha" data-sitekey="6LeOCskUAAAAAAN-mhMUFl3FU5MtUvE2XJQ_Isye" data-callback="dataCallback"
-            data-expired-callback="dataExpiredCallback"></div>
-          </div>
 
           <div class="text-center">
             <button type="submit" value="upload" id="btnPlaceOrder">Submit</button></div>
@@ -902,7 +898,7 @@ font-weight:bold;
 padding:12px 16px;
 text-decoration:none;
 text-shadow:0px 1px 0px #ffffff;
-display:none;" onclick="disappear()">OK</button>
+display:none;" onclick="disappear()">OK</button> <!-- disappear -->
   <!-- <form method="POST" enctype="multipart/form-data" action="/fileupload" class="contactForm">
     <input type="file" name="filename" />
     <input type="file" name="filename2" />
@@ -1408,6 +1404,7 @@ display:none;" onclick="disappear()">OK</button>
   <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-firestore.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-storage.js"></script>
   <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-database.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/7.6.0/firebase-auth.js"></script>
 
   <!--jquery validation-->
   <script src="https://jqueryvalidation.org/files/dist/jquery.validate.min.js"></script>
