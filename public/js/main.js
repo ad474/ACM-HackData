@@ -565,12 +565,33 @@ function upfile(teamname){
 
   }
 
+  var n3;
+  var e3;
+  var p3;
+  var c3;
 
   function upfile3(teamname){
-    var filename3 = res3.name;
-    var storageRef3 = firebase.storage().ref('/resumes/'+teamname+'/' + Date.now()+'3' + filename3);
-
-    var uploadTask3 = storageRef3.put(res3);
+    var filename3;
+    var storageRef3;
+    var uploadTask3;
+    if(res3){
+      filename3 = res3.name;
+      storageRef3 = firebase.storage().ref('/resumes/'+teamname+'/' + Date.now()+'3' + filename3);
+      uploadTask3 = storageRef3.put(res3);
+      n3=form1.name3.value;
+      c3=form1.college3.value;
+      n3=form1.number3.value;
+      e3=form1.email3.value;
+    }
+    else{
+      filename3 = res1.name;
+      storageRef3 = firebase.storage().ref('/resumes/'+teamname+'/' + Date.now()+'3' + filename3);
+      uploadTask3 = storageRef3.put(res1);
+      n3="NA";
+      c3="NA";
+      n3="NA";
+      e3="NA";
+    }
 
 
     uploadTask3.on('state_changed', function(snapshot){
@@ -628,10 +649,10 @@ function updateDb(uniqueid) {
     college2:form1.college2.value,
     number2:form1.number2.value,
     email2:form1.email2.value,
-    name3:form1.name3.value,
-    college3:form1.college3.value,
-    number3:form1.number3.value,
-    email3:form1.email3.value
+    name3:n3,
+    college3:c3,
+    number3:n3,
+    email3:e3
   }).then(function() {
 
     console.log("Document successfully written!");
