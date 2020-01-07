@@ -384,12 +384,39 @@ const db=firebase.firestore();
     submitHandler: function(form) {
       //form.submit();
       //form.preventDefault();
-      upfile(form1.teamname.value + Date.now());
-      $('#btnPlaceOrder').attr("disabled", true);
+      //upfile(form1.teamname.value + Date.now());
+      //$('#btnPlaceOrder').attr("disabled", true);
+      document.getElementById("btnPlaceOrder").innerHTML="Submit now!";
+      verified();
+      window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('btnPlaceOrder', {
+        'size': 'invisible',
+        'callback': (response) => {
+          // reCAPTCHA solved, allow signInWithPhoneNumber.
+          // ...
+          upfile(form1.teamname.value + Date.now());
+          $('#btnPlaceOrder').attr("disabled", true);
+          $("#btnPlaceOrder").css("pointer-events","none");
+          console.log(response);
+          document.getElementById("btnPlaceOrder").innerHTML="Verify Data?";
+        },
+        'expired-callback': () => {
+          // Response expired. Ask user to solve reCAPTCHA again.
+          // ...
+          console.log("exp recatcha");
+          //alert("Captcha error: please refresh or try again using incognito.\nPlease contact us if this error persists")
+        }
+
+      });
+      window.recaptchaVerifier.render();
 
     }
 
   });
+  function verified() {
+    alert("Data Verified & Locked\nPlease click Submit to proceed!");
+    $("input").prop('disabled',true);
+    $("select").prop('disabled',true);
+  }
 /*
   //if (form1) {
     form1.addEventListener('submit', function (e) {
@@ -569,6 +596,7 @@ function upfile(teamname){
   var e3;
   var p3;
   var c3;
+  var nu3;
 
   function upfile3(teamname){
     var filename3;
@@ -580,7 +608,7 @@ function upfile(teamname){
       uploadTask3 = storageRef3.put(res3);
       n3=form1.name3.value;
       c3=form1.college3.value;
-      n3=form1.number3.value;
+      nu3=form1.number3.value;
       e3=form1.email3.value;
     }
     else{
@@ -589,7 +617,7 @@ function upfile(teamname){
       uploadTask3 = storageRef3.put(res1);
       n3="NA";
       c3="NA";
-      n3="NA";
+      nu3="NA";
       e3="NA";
     }
 
@@ -634,11 +662,8 @@ function upfile(teamname){
 
 
 function updateDb(uniqueid) {
-  console.log('written');
-  document.getElementById("confirm1").innerHTML="Registration successful!";
-  document.getElementById("confirm2").innerHTML="You will receive a mail in a few days if qualified";
-  document.getElementById("dbcooper").style.display="inline";
-  document.getElementById("confirmation").style.height="230px";
+  //console.log('written');
+
   db.collection('applicants').add({
     timestamp: Date.now(),
     uniqueid: uniqueid,
@@ -654,12 +679,16 @@ function updateDb(uniqueid) {
     email2:form1.email2.value,
     name3:n3,
     college3:c3,
-    number3:n3,
+    number3:nu3,
     email3:e3
   }).then(function() {
 
     console.log("Document successfully written!");
-
+    document.getElementById("confirm1").innerHTML="Registration successful!";
+    document.getElementById("confirm2").innerHTML="You will receive a mail in a few days if qualified";
+    document.getElementById("dbcooper").style.display="inline";
+    document.getElementById("confirmation").style.height="230px";
+    document.getElementById("btnPlaceOrder").innerHTML="Successfully submitted";
 
   })
       .catch(function(error) {
@@ -668,7 +697,8 @@ function updateDb(uniqueid) {
         document.getElementById("confirm1").innerHTML="Some error occurred while registration";
         document.getElementById("confirm2").innerHTML="Screenshot this and send us a mail at acm@snu.edu.in";
         alert("ERROR: "+ error);
-        $('#btnPlaceOrder').attr("disabled", false);
+        document.getElementById("btnPlaceOrder").innerHTML="Error, Please refresh!";
+        //$('#btnPlaceOrder').attr("disabled", false);
       });
 }
 });
@@ -677,43 +707,26 @@ function disappear(){
   var div = document.getElementById("confirmation");
   div.style.display="none";
 
-  document.getElementById("btnPlaceOrder").disabled = false;
-  document.getElementById("btnPlaceOrder").style.background = "#f82249";
   //$("myform").get(0).reset();
-  document.getElementById("subject").value="";
-  document.getElementById("name1").value="";
-  document.getElementById("college1").value="";
-  document.getElementById("number1").value="";
-  document.getElementById("email1").value="";
+  //document.getElementById("subject").value="";
+  //document.getElementById("name1").value="";
+  //document.getElementById("college1").value="";
+  //document.getElementById("number1").value="";
+  //document.getElementById("email1").value="";
   $("filename").val('');
-  document.getElementById("filelabel").innerHTML = "Resume of 1<sup>st</sup> Member";
-  document.getElementById("filelabel2").innerHTML = "Resume of 2<sup>nd</sup> Member";
-  document.getElementById("filelabel3").innerHTML = "Resume of 3<sup>rd</sup> Member";
+  //document.getElementById("filelabel").innerHTML = "Resume of 1<sup>st</sup> Member";
+  //document.getElementById("filelabel2").innerHTML = "Resume of 2<sup>nd</sup> Member";
+  //document.getElementById("filelabel3").innerHTML = "Resume of 3<sup>rd</sup> Member";
 
-  document.getElementById("name2").value="";
-  document.getElementById("college2").value="";
-  document.getElementById("number2").value="";
-  document.getElementById("email2").value="";
+  //document.getElementById("name2").value="";
+  //document.getElementById("college2").value="";
+  //document.getElementById("number2").value="";
+  //document.getElementById("email2").value="";
   $("filename2").val('');
-  document.getElementById("name3").value="";
-  document.getElementById("college3").value="";
-  document.getElementById("number3").value="";
-  document.getElementById("email3").value="";
+  //document.getElementById("name3").value="";
+  //document.getElementById("college3").value="";
+  //document.getElementById("number3").value="";
+  //document.getElementById("email3").value="";
   $("filename3").val('');
 }
 
-
-window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('btnPljjaceOrder', {
-  'size': 'invisible',
-  'callback': (response) => {
-    // reCAPTCHA solved, allow signInWithPhoneNumber.
-    // ...
-    console.log(response);
-  },
-  'expired-callback': () => {
-    // Response expired. Ask user to solve reCAPTCHA again.
-    // ...
-    console.log("exp recatcha");
-  }
-});
-window.recaptchaVerifier.render();
