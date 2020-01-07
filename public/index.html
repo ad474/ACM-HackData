@@ -353,7 +353,8 @@ document.getElementById("demo").innerHTML = days + "d "
                     <div class="col-lg-6">
                       <h3>Where</h3>
                       <p>Shiv Nadar University</p>
-                      <h3>Prizes : 1 lakh+</h3>
+                      <h3>Prizes</h3>
+                      <p>1 lakh+</p>
                     </div>
 
                     <div class="col-lg-6">
@@ -699,11 +700,12 @@ document.getElementById("demo").innerHTML = days + "d "
         <h2>Register</h2>
         <p>Provide the details below to register for the coolest hackathon</p>
       </div>
+      <!--
       <div class="twopwarning" style="background-color:#ffcc00; width:100%;border-radius:5px;padding:10px;">
           Facing a minor issue. Teams with less than 3 members to please reach out to us at acm@snu.edu.in
       </div>
       <br />
-
+      -->
       <div class="form">
         <!-- <div id="sendmessage">Your message has been sent. Thank you!</div>
         <div id="errormessage"></div> -->
@@ -714,9 +716,9 @@ document.getElementById("demo").innerHTML = days + "d "
         method="POST"
         enctype="multipart/form-data"
         > -->
-            <div>
-                <select>
-                    <option>Choose number of team members</option>
+            <div class="form-group">
+              <label for="sel">Number of team members</label>
+                <select id="sel" class="form-control">
                     <option value="two">Two</option>
                     <option value="three">Three</option>
                 </select>
@@ -885,7 +887,7 @@ document.getElementById("demo").innerHTML = days + "d "
 
                 <label id="filelabel3" for="filename3" class="custom-file-label">Resume of 3<sup>rd</sup> Member</label>
               </div>
-              <small id="" class="text-muted">
+              <small class="text-muted">
                 Must be less than 2MB & of type pdf,doc or docx only!
               </small>
               <div class="m-3"></div>
@@ -1045,19 +1047,6 @@ display:none;" onclick="disappear()">OK</button> <!-- disappear -->
   </div>
 
 </section>
-
-<div>
-        <select>
-            <option>Choose Color</option>
-            <option value="red">Red</option>
-            <option value="green">Green</option>
-            <option value="blue">Blue</option>
-        </select>
-    </div>
-    <div class="red box">You have selected <strong>red option</strong> so i am here</div>
-    <div class="green box">You have selected <strong>green option</strong> so i am here</div>
-    <div class="blue box">You have selected <strong>blue option</strong> so i am here</div>
-
 
 
 

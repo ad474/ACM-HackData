@@ -598,8 +598,11 @@ function upfile(teamname){
       // Observe state change events such as progress, pause, and resume
       // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
       var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-      console.log('Upload is ' + progress + '% done');
-      document.getElementById("confirm1").innerHTML="Uploading Resume 3: "+Math.round(progress * 100) / 100+"% done";
+      console.log('Finalizing is ' + progress + '% done');
+      //if(e3.localeCompare("NA") != 0)
+        document.getElementById("confirm1").innerHTML="Just a few more moments"+Math.round(progress * 100) / 100+"% done";
+      //else
+        //document.getElementById("confirm1").innerHTML="Finishing Registration"+Math.round(progress * 100) / 100+"% done";
       document.getElementById("confirm2").innerHTML="Please do not close the tab";
       switch (snapshot.state) {
         case firebase.storage.TaskState.PAUSED: // or 'paused'
@@ -683,6 +686,10 @@ function disappear(){
   document.getElementById("number1").value="";
   document.getElementById("email1").value="";
   $("filename").val('');
+  document.getElementById("filelabel").innerHTML = "Resume of 1<sup>st</sup> Member";
+  document.getElementById("filelabel2").innerHTML = "Resume of 2<sup>nd</sup> Member";
+  document.getElementById("filelabel3").innerHTML = "Resume of 3<sup>rd</sup> Member";
+
   document.getElementById("name2").value="";
   document.getElementById("college2").value="";
   document.getElementById("number2").value="";
