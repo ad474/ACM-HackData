@@ -142,13 +142,13 @@ jQuery(document).ready(function( $ ) {
     modal.find('#ticket-type').val(ticketType);
   })
 
-// custom code
+/* custom code
 var kursorx = new kursor({
   type: 1,
   color: 'rgb(183,59,42)',
   removeDefaultCursor: true
 });
-
+*/
 
 
 particlesJS("particles-js", {
