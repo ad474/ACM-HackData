@@ -381,33 +381,54 @@ const db=firebase.firestore();
       }
 
     },
-    submitHandler: function(form) {
+    submitHandler: function(e) {
+      e.preventDefault();
+      console.log("here 1");
+      triggerDiv();
+      document.getElementById("confirm1").innerHTML="Upload in progress";
+      document.getElementById("confirm2").innerHTML="Please wait and do not close tab";
+      document.getElementById("btnPlaceOrder").disabled = true;
+      document.getElementById("btnPlaceOrder").style.background = "grey";
+      console.log("here 2");
+      updateDb(form1.teamname.value + Date.now());
+      console.log("here 3");
+      $('#btnPlaceOrder').attr("disabled", true);
+      $("#btnPlaceOrder").css("pointer-events","none");
+      // console.log(response);
+      document.getElementById("btnPlaceOrder").innerHTML="Verify Data?";
+
       //form.submit();
       //form.preventDefault();
       //upfile(form1.teamname.value + Date.now());
       //$('#btnPlaceOrder').attr("disabled", true);
-      document.getElementById("btnPlaceOrder").innerHTML="Submit now!";
-      verified();
-      window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('btnPlaceOrder', {
-        'size': 'invisible',
-        'callback': (response) => {
-          // reCAPTCHA solved, allow signInWithPhoneNumber.
-          // ...
-          upfile(form1.teamname.value + Date.now());
-          $('#btnPlaceOrder').attr("disabled", true);
-          $("#btnPlaceOrder").css("pointer-events","none");
-          console.log(response);
-          document.getElementById("btnPlaceOrder").innerHTML="Verify Data?";
-        },
-        'expired-callback': () => {
-          // Response expired. Ask user to solve reCAPTCHA again.
-          // ...
-          console.log("exp recatcha");
-          //alert("Captcha error: please refresh or try again using incognito.\nPlease contact us if this error persists")
-        }
 
-      });
-      window.recaptchaVerifier.render();
+      // document.getElementById("btnPlaceOrder").innerHTML="Submit now!";
+      // verified();
+      // window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('btnPlaceOrder', {
+      //   'size': 'invisible',
+      //   'callback': (response) => {
+      //     // reCAPTCHA solved, allow signInWithPhoneNumber.
+      //     // ...
+      //     triggerDiv();
+      //     document.getElementById("confirm1").innerHTML="Upload in progress";
+      //     document.getElementById("confirm2").innerHTML="Please wait and do not close tab";
+      //     document.getElementById("btnPlaceOrder").disabled = true;
+      //     document.getElementById("btnPlaceOrder").style.background = "grey";
+      //     updateDb(form1.teamname.value + Date.now());
+      //     $('#btnPlaceOrder').attr("disabled", true);
+      //     $("#btnPlaceOrder").css("pointer-events","none");
+      //     console.log(response);
+      //     document.getElementById("btnPlaceOrder").innerHTML="Verify Data?";
+      //   },
+      //   'expired-callback': () => {
+      //     // Response expired. Ask user to solve reCAPTCHA again.
+      //     // ...
+      //     console.log("exp recatcha");
+      //     //alert("Captcha error: please refresh or try again using incognito.\nPlease contact us if this error persists")
+      //   }
+      //
+      // });
+      // window.recaptchaVerifier.render();
 
     }
 
@@ -673,14 +694,21 @@ function updateDb(uniqueid) {
     college1:form1.college1.value,
     number1:form1.number1.value,
     email1:form1.email1.value,
+    github1:form1.github1.value,
     name2:form1.name2.value,
     college2:form1.college2.value,
     number2:form1.number2.value,
     email2:form1.email2.value,
-    name3:n3,
-    college3:c3,
-    number3:nu3,
-    email3:e3
+    github2:form1.github2.value,
+    name3:form1.name3.value,
+    college3:form1.college3.value,
+    number3:form1.number3.value,
+    email3:form1.email3.value,
+    // name3:n3,
+    // college3:c3,
+    // number3:nu3,
+    // email3:e3,
+    github3:form1.github3.value
   }).then(function() {
 
     console.log("Document successfully written!");
@@ -729,4 +757,3 @@ function disappear(){
   //document.getElementById("email3").value="";
   $("filename3").val('');
 }
-
