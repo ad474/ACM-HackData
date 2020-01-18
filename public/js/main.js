@@ -403,7 +403,6 @@ jQuery(document).ready(function( $ ) {
           // reCAPTCHA solved, allow signInWithPhoneNumber.
           // ...
           //upfile(form1.teamname.value + Date.now());
-          alert("here");
           triggerDiv();
           updateDb(form1.teamname.value);
           $('#btnPlaceOrder').attr("disabled", true);
@@ -506,6 +505,7 @@ jQuery(document).ready(function( $ ) {
    */
   function triggerDiv() {
     var div = document.getElementById("confirmation");
+    document.getElementById("confirm1").innerHTML="Please Wait!";
     div.style.display="block";
     // div.style.display = div.style.display == "none" ? "block" : "none";
     //alert("Upload resumes of team members");
