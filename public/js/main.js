@@ -142,88 +142,88 @@ jQuery(document).ready(function( $ ) {
     modal.find('#ticket-type').val(ticketType);
   })
 
-/* custom code
-var kursorx = new kursor({
-  type: 1,
-  color: 'rgb(183,59,42)',
-  removeDefaultCursor: true
-});
-*/
+  /* custom code
+  var kursorx = new kursor({
+    type: 1,
+    color: 'rgb(183,59,42)',
+    removeDefaultCursor: true
+  });
+  */
 
 
-particlesJS("particles-js", {
-  "particles": {
-    "number": {
-      "value": 90,
-      "density": {
+  particlesJS("particles-js", {
+    "particles": {
+      "number": {
+        "value": 90,
+        "density": {
+          "enable": true,
+          "value_area": 800
+
+        }
+
+
+      },
+      "shape": {
+        "type": "circle",
+        "stroke": {
+          "width": 2,
+          "color": "#fff"
+        },
+        "polygon": {
+          "nb_sides": 7
+        },
+        "image": {
+          "src": "img/github.svg",
+          "width": 100,
+          "height": 100
+        }
+      },
+      "opacity": {
+        "value": 1,
+        "random": false,
+        "anim": {
+          "enable": false,
+          "speed": 3,
+          "opacity_min": 0.1,
+          "sync": false
+        }
+      },
+      "size": {
+        "value": 3,
+        "random": true,
+        "anim": {
+          "enable": false,
+          "speed": 20,
+          "size_min": 0.1,
+          "sync": false
+        }
+      },
+      "line_linked": {
         "enable": true,
-        "value_area": 800
-
-      }
-
-
-    },
-    "shape": {
-      "type": "circle",
-      "stroke": {
-        "width": 2,
-        "color": "#fff"
+        "distance": 250,
+        "color": "fff",
+        "opacity": 0.4,
+        "width": 1
       },
-      "polygon": {
-        "nb_sides": 7
-      },
-      "image": {
-        "src": "img/github.svg",
-        "width": 100,
-        "height": 100
-      }
-    },
-    "opacity": {
-      "value": 1,
-      "random": false,
-      "anim": {
-        "enable": false,
+      "move": {
+        "enable": true,
         "speed": 3,
-        "opacity_min": 0.1,
-        "sync": false
-      }
-    },
-    "size": {
-      "value": 3,
-      "random": true,
-      "anim": {
-        "enable": false,
-        "speed": 20,
-        "size_min": 0.1,
-        "sync": false
-      }
-    },
-    "line_linked": {
-      "enable": true,
-      "distance": 250,
-      "color": "fff",
-      "opacity": 0.4,
-      "width": 1
-    },
-    "move": {
-      "enable": true,
-      "speed": 3,
-      "direction": "none",
-      "random": true,
-      "straight": false,
-      "out_mode": "out",
-      "bounce": false,
-      "attract": {
-        "enable": false,
-        "rotateX": 600,
-        "rotateY": 1200
-      }
+        "direction": "none",
+        "random": true,
+        "straight": false,
+        "out_mode": "out",
+        "bounce": false,
+        "attract": {
+          "enable": false,
+          "rotateX": 600,
+          "rotateY": 1200
+        }
 
-    }
-  },
-  "retina_detect": true
+      }
+    },
+    "retina_detect": true
 
-});
+  });
 
 
   if (typeof firebase === 'undefined') throw new Error('hosting/init-error: Firebase SDK not detected. You must include it before /__/firebase/init.js');
@@ -238,7 +238,7 @@ particlesJS("particles-js", {
     "messagingSenderId": "405958797889"
   });
 
-const db=firebase.firestore();
+  const db=firebase.firestore();
 
   const form1 = document.getElementById("myform");
 
@@ -323,6 +323,15 @@ const db=firebase.firestore();
         minlength: 10,
         maxlength: 11
       },
+      github1:{
+        required: true
+      },
+      github2:{
+        required: true
+      },
+      github3:{
+        required: true
+      }
 
 
 
@@ -381,54 +390,36 @@ const db=firebase.firestore();
       }
 
     },
-    submitHandler: function(e) {
-      e.preventDefault();
-      console.log("here 1");
-      triggerDiv();
-      document.getElementById("confirm1").innerHTML="Upload in progress";
-      document.getElementById("confirm2").innerHTML="Please wait and do not close tab";
-      document.getElementById("btnPlaceOrder").disabled = true;
-      document.getElementById("btnPlaceOrder").style.background = "grey";
-      console.log("here 2");
-      updateDb(form1.teamname.value + Date.now());
-      console.log("here 3");
-      $('#btnPlaceOrder').attr("disabled", true);
-      $("#btnPlaceOrder").css("pointer-events","none");
-      // console.log(response);
-      document.getElementById("btnPlaceOrder").innerHTML="Verify Data?";
-
+    submitHandler: function(form) {
       //form.submit();
       //form.preventDefault();
       //upfile(form1.teamname.value + Date.now());
       //$('#btnPlaceOrder').attr("disabled", true);
+      document.getElementById("btnPlaceOrder").innerHTML="Submit now!";
+      verified();
+      window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('btnPlaceOrder', {
+        'size': 'invisible',
+        'callback': (response) => {
+          // reCAPTCHA solved, allow signInWithPhoneNumber.
+          // ...
+          //upfile(form1.teamname.value + Date.now());
+          alert("here");
+          triggerDiv();
+          updateDb(form1.teamname.value);
+          $('#btnPlaceOrder').attr("disabled", true);
+          $("#btnPlaceOrder").css("pointer-events","none");
+          console.log(response);
+          document.getElementById("btnPlaceOrder").innerHTML="Verify Data?";
+        },
+        'expired-callback': () => {
+          // Response expired. Ask user to solve reCAPTCHA again.
+          // ...
+          console.log("exp recatcha");
+          //alert("Captcha error: please refresh or try again using incognito.\nPlease contact us if this error persists")
+        }
 
-      // document.getElementById("btnPlaceOrder").innerHTML="Submit now!";
-      // verified();
-      // window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('btnPlaceOrder', {
-      //   'size': 'invisible',
-      //   'callback': (response) => {
-      //     // reCAPTCHA solved, allow signInWithPhoneNumber.
-      //     // ...
-      //     triggerDiv();
-      //     document.getElementById("confirm1").innerHTML="Upload in progress";
-      //     document.getElementById("confirm2").innerHTML="Please wait and do not close tab";
-      //     document.getElementById("btnPlaceOrder").disabled = true;
-      //     document.getElementById("btnPlaceOrder").style.background = "grey";
-      //     updateDb(form1.teamname.value + Date.now());
-      //     $('#btnPlaceOrder').attr("disabled", true);
-      //     $("#btnPlaceOrder").css("pointer-events","none");
-      //     console.log(response);
-      //     document.getElementById("btnPlaceOrder").innerHTML="Verify Data?";
-      //   },
-      //   'expired-callback': () => {
-      //     // Response expired. Ask user to solve reCAPTCHA again.
-      //     // ...
-      //     console.log("exp recatcha");
-      //     //alert("Captcha error: please refresh or try again using incognito.\nPlease contact us if this error persists")
-      //   }
-      //
-      // });
-      // window.recaptchaVerifier.render();
+      });
+      window.recaptchaVerifier.render();
 
     }
 
@@ -438,16 +429,18 @@ const db=firebase.firestore();
     $("input").prop('disabled',true);
     $("select").prop('disabled',true);
   }
-/*
-  //if (form1) {
-    form1.addEventListener('submit', function (e) {
+  /*
+    //if (form1) {
+      form1.addEventListener('submit', function (e) {
 
-      e.preventDefault();
-      upfile(form1.teamname.value + Date.now());
-    });
-  //}
+        e.preventDefault();
+        upfile(form1.teamname.value + Date.now());
+      });
+    //}
 
- */
+   */
+
+  /*
   var res1,res2,res3;
   $('#filename').on("change", function(event){
 
@@ -509,12 +502,14 @@ const db=firebase.firestore();
       $('#filelabel3').html(fileName);
     }
   });
+
+   */
   function triggerDiv() {
-       var div = document.getElementById("confirmation");
-       div.style.display="block";
-      // div.style.display = div.style.display == "none" ? "block" : "none";
-      //alert("Upload resumes of team members");
-      // document.getElementById('itemm').scrollIntoView();
+    var div = document.getElementById("confirmation");
+    div.style.display="block";
+    // div.style.display = div.style.display == "none" ? "block" : "none";
+    //alert("Upload resumes of team members");
+    // document.getElementById('itemm').scrollIntoView();
   }
   function disappear(){
     var div = document.getElementById("confirmation");
@@ -525,52 +520,48 @@ const db=firebase.firestore();
 
 
   }
-function upfile(teamname){
-  triggerDiv();
-  document.getElementById("btnPlaceOrder").disabled = true;
-  document.getElementById("btnPlaceOrder").style.background = "grey";
-  var filename = res1.name;
-  var storageRef  = firebase.storage().ref('/resumes/'+teamname+'/' + Date.now()+'1'+ filename);
-  var uploadTask  = storageRef.put(res1);
-  // Register three observers:
+  /*
+  function upfile(teamname){
+    triggerDiv();
+    document.getElementById("btnPlaceOrder").disabled = true;
+    document.getElementById("btnPlaceOrder").style.background = "grey";
+    var filename = res1.name;
+    var storageRef  = firebase.storage().ref('/resumes/'+teamname+'/' + Date.now()+'1'+ filename);
+    var uploadTask  = storageRef.put(res1);
+    // Register three observers:
 // 1. 'state_changed' observer, called any time the state changes
 // 2. Error observer, called on failure
 // 3. Completion observer, called on successful completion
-  uploadTask.on('state_changed', function(snapshot){
-    // Observe state change events such as progress, pause, and resume
-    // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
-    var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-    console.log('Upload is ' + progress + '% done');
-    document.getElementById("confirm1").innerHTML="Uploading resume 1: "+Math.round(progress * 100) / 100+"% done";
-    document.getElementById("confirm2").innerHTML="Please do not close the tab";
-    switch (snapshot.state) {
-      case firebase.storage.TaskState.PAUSED: // or 'paused'
-        console.log('Upload is paused');
-        break;
-      case firebase.storage.TaskState.RUNNING: // or 'running'
-        console.log('Upload is running');
-        break;
-    }
-  }, function(error) {
-    // Handle unsuccessful uploads
+    uploadTask.on('state_changed', function(snapshot){
+      // Observe state change events such as progress, pause, and resume
+      // Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
+      var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      console.log('Upload is ' + progress + '% done');
+      document.getElementById("confirm1").innerHTML="Uploading resume 1: "+Math.round(progress * 100) / 100+"% done";
+      document.getElementById("confirm2").innerHTML="Please do not close the tab";
+      switch (snapshot.state) {
+        case firebase.storage.TaskState.PAUSED: // or 'paused'
+          console.log('Upload is paused');
+          break;
+        case firebase.storage.TaskState.RUNNING: // or 'running'
+          console.log('Upload is running');
+          break;
+      }
+    }, function(error) {
+      // Handle unsuccessful uploads
       //alert("ERROR: 'Resume 1' Either the file exceeds 2MB or the file type is not supported(only doc/docx/pdf are supported)");
       document.getElementById("confirm1").innerHTML="Either the file exceeds 2MB or the file type is not supported";
       document.getElementById("confirm2").innerHTML="Please try again";
       //console.log(error);
-  }, function() {
-    // Handle successful uploads on complete
-    // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-   /* uploadTask.snapshot.ref.getDownloadURL().then(function(downloadURL) {
-      console.log('File available at', downloadURL);
-      link1 = downloadURL;
-      upfile2(teamname);
-    })
-    ;
-    */
-    upfile2(teamname);
-  });
+    }, function() {
+      // Handle successful uploads on complete
+      // For instance, get the download URL: https://firebasestorage.googleapis.com/...
 
-}
+
+      upfile2(teamname);
+    });
+
+  }
 
   function upfile2(teamname){
     var filename2 = res2.name;
@@ -601,13 +592,7 @@ function upfile(teamname){
     }, function() {
       // Handle successful uploads on complete
       // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-      /*uploadTask2.snapshot.ref.getDownloadURL().then(function(downloadURL) {
-        console.log('File available at', downloadURL);
-        link2 = downloadURL;
-        upfile3(teamname);
-      });
 
-       */
       upfile3(teamname);
     });
 
@@ -649,9 +634,9 @@ function upfile(teamname){
       var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
       console.log('Finalizing is ' + progress + '% done');
       //if(e3.localeCompare("NA") != 0)
-        document.getElementById("confirm1").innerHTML="Just a few more moments"+Math.round(progress * 100) / 100+"% done";
+      document.getElementById("confirm1").innerHTML="Just a few more moments"+Math.round(progress * 100) / 100+"% done";
       //else
-        //document.getElementById("confirm1").innerHTML="Finishing Registration"+Math.round(progress * 100) / 100+"% done";
+      //document.getElementById("confirm1").innerHTML="Finishing Registration"+Math.round(progress * 100) / 100+"% done";
       document.getElementById("confirm2").innerHTML="Please do not close the tab";
       switch (snapshot.state) {
         case firebase.storage.TaskState.PAUSED: // or 'paused'
@@ -663,72 +648,64 @@ function upfile(teamname){
       }
     }, function(error) {
       // Handle unsuccessful uploads
-        //alert("ERROR: 'Resume 3' Either the file exceeds 2MB or the file type is not supported(only doc/docx/pdf are supported)");
-        document.getElementById("confirm1").innerHTML="Either the file exceeds 2MB or the file type is not supported";
-        document.getElementById("confirm2").innerHTML="Please try again";
-        //console.log(error);
+      //alert("ERROR: 'Resume 3' Either the file exceeds 2MB or the file type is not supported(only doc/docx/pdf are supported)");
+      document.getElementById("confirm1").innerHTML="Either the file exceeds 2MB or the file type is not supported";
+      document.getElementById("confirm2").innerHTML="Please try again";
+      //console.log(error);
     }, function() {
       // Handle successful uploads on complete
       // For instance, get the download URL: https://firebasestorage.googleapis.com/...
-      /*uploadTask3.snapshot.ref.getDownloadURL().then(function(downloadURL) {
-        console.log('File available at', downloadURL);
-        link3 = downloadURL;
-        updateDb();
-      });
 
-       */
       updateDb(teamname);
     });
   }
+  */
 
 
-function updateDb(uniqueid) {
-  //console.log('written');
+  function updateDb(uniqueid) {
+    //console.log('written');
 
-  db.collection('applicants').add({
-    timestamp: Date.now(),
-    uniqueid: uniqueid,
-    teamname: form1.teamname.value,
-    track:form1.track.value,
-    name1:form1.name1.value,
-    college1:form1.college1.value,
-    number1:form1.number1.value,
-    email1:form1.email1.value,
-    github1:form1.github1.value,
-    name2:form1.name2.value,
-    college2:form1.college2.value,
-    number2:form1.number2.value,
-    email2:form1.email2.value,
-    github2:form1.github2.value,
-    name3:form1.name3.value,
-    college3:form1.college3.value,
-    number3:form1.number3.value,
-    email3:form1.email3.value,
-    // name3:n3,
-    // college3:c3,
-    // number3:nu3,
-    // email3:e3,
-    github3:form1.github3.value
-  }).then(function() {
+    db.collection('applicants').add({
+      timestamp: Date.now(),
+      uniqueid: uniqueid,
+      teamname: form1.teamname.value,
+      track:form1.track.value,
+      name1:form1.name1.value,
+      college1:form1.college1.value,
+      number1:form1.number1.value,
+      email1:form1.email1.value,
+      name2:form1.name2.value,
+      college2:form1.college2.value,
+      number2:form1.number2.value,
+      email2:form1.email2.value,
+      name3:form1.name3.value,
+      college3:form1.college3.value,
+      number3:form1.number3.value,
+      email3:form1.email3.value,
+      github1:form1.github1.value,
+      github2:form1.github2.value,
+      github3:form1.github3.value,
 
-    console.log("Document successfully written!");
-    document.getElementById("confirm1").innerHTML="Registration successful!";
-    document.getElementById("confirm2").innerHTML="You will receive a mail in a few days if qualified";
-    document.getElementById("dbcooper").style.display="inline";
-    document.getElementById("confirmation").style.height="230px";
-    document.getElementById("btnPlaceOrder").innerHTML="Successfully submitted";
+    }).then(function() {
 
-  })
-      .catch(function(error) {
-        //console.error("Error writing document: ", error);
-        //alert("ERROR: Error in creating a new entry!\nPlease screenshot this and mail us at acm@snu.edu.in");
-        document.getElementById("confirm1").innerHTML="Some error occurred while registration";
-        document.getElementById("confirm2").innerHTML="Screenshot this and send us a mail at acm@snu.edu.in";
-        alert("ERROR: "+ error);
-        document.getElementById("btnPlaceOrder").innerHTML="Error, Please refresh!";
-        //$('#btnPlaceOrder').attr("disabled", false);
-      });
-}
+      console.log("Document successfully written!");
+      document.getElementById("confirm1").innerHTML="Registration successful!";
+      document.getElementById("confirm2").innerHTML="You will receive a mail in a few days if qualified";
+      document.getElementById("dbcooper").style.display="inline";
+      document.getElementById("confirmation").style.height="230px";
+      document.getElementById("btnPlaceOrder").innerHTML="Successfully submitted";
+
+    })
+        .catch(function(error) {
+          //console.error("Error writing document: ", error);
+          //alert("ERROR: Error in creating a new entry!\nPlease screenshot this and mail us at acm@snu.edu.in");
+          document.getElementById("confirm1").innerHTML="Some error occurred while registration";
+          document.getElementById("confirm2").innerHTML="Screenshot this and send us a mail at acm@snu.edu.in";
+          alert("ERROR: "+ error);
+          document.getElementById("btnPlaceOrder").innerHTML="Error, Please refresh!";
+          //$('#btnPlaceOrder').attr("disabled", false);
+        });
+  }
 });
 
 function disappear(){
@@ -757,3 +734,4 @@ function disappear(){
   //document.getElementById("email3").value="";
   $("filename3").val('');
 }
+

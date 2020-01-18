@@ -27,8 +27,10 @@ return request.resource.data.name1 is string
 && request.resource.data.uniqueid is string
 && request.resource.data.track is string
 && request.resource.data.teamname is string
+&& request.resource.data.github1 is string
+&& request.resource.data.github2 is string
+&& request.resource.data.github3 is string
 
-
-&& request.resource.data.keys().hasOnly(['uniqueid','teamname','track','name1','name2','name3','college1','college2','college3','email1','email2','email3','timestamp','number1','number2','number3']);
+&& request.resource.data.keys().hasOnly(['github1','github2','github3','uniqueid','teamname','track','name1','name2','name3','college1','college2','college3','email1','email2','email3','timestamp','number1','number2','number3']);
 }
 }
