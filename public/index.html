@@ -137,6 +137,9 @@ $(document).ready(function(){
         .bigtext{
           font-size:20px;
         }
+        #logo{
+          height:150px;
+        }
     }
 
     /* Smartphones (portrait) ----------- */
@@ -145,6 +148,9 @@ $(document).ready(function(){
         /* Styles */
         .bigtext{
           font-size:15px;
+        }
+        #logo{
+          height:150px;
         }
     }
 
@@ -157,6 +163,9 @@ $(document).ready(function(){
         .bigtext{
           font-size:40px;
         }
+        #logo{
+          height:150px;
+        }
     }
 
     /* iPads (portrait) ----------- */
@@ -167,6 +176,9 @@ $(document).ready(function(){
         /* Styles */
         .bigtext{
           font-size:40px;
+        }
+        #logo{
+          height:150px;
         }
     }
 
@@ -184,6 +196,9 @@ $(document).ready(function(){
         .smalltext{
           font-size:15px;
         }
+        #logo{
+          height:200px;
+        }
     }
 
     /* Large screens ----------- */
@@ -193,7 +208,9 @@ $(document).ready(function(){
         .bigtext{
           font-size:40px;
         }
-
+        #logo{
+          height:200px;
+        }
     }
 
     /* iPhone 4 ----------- */
@@ -210,6 +227,9 @@ $(document).ready(function(){
         }
         .smalltext{
           font-size:12px;
+        }
+        #logo{
+          height:150px;
         }
     }
 </style>
@@ -239,7 +259,7 @@ $(document).ready(function(){
       <div id="logo" class="pull-left">
         <!-- Uncomment below if you prefer to use a text logo -->
         <!-- <h1><a href="#main">C<span>o</span>nf</a></h1>-->
-        <a href="#intro" class="scrollto"><img src="img/hackdata4.0_logo.png" id="#logo" alt="Hackdata logo" title="Hackdata"></a>
+        <a href="#intro" class="scrollto"><img src="img/hackdata_logo red.png" id="#logo" alt="Hackdata logo" title="Hackdata"></a>
       </div>
 
       <nav id="nav-menu-container">
@@ -275,7 +295,8 @@ $(document).ready(function(){
           <a href="https://snu-breeze.com/" class="scrollto"><img style="height:100px;" src="img/logonewfinal copy.png" id="#logo" alt="Breeze logo" title="Breeze"></a>
         </div>
         <p class="mb-4 pb-0">presents</p> -->
-        <h1 class="mb-4 pb-0"><span>Hackdata 4.0</span></h1>
+        <!-- <h1 class="mb-4 pb-0"><span>Hackdata 4.0</span></h1> -->
+        <img src="img/hackdata_logo red.png" id="#logo" alt="Hackdata logo" title="Hackdata" style="height:160px;">
         <p class="mb-4 pb-0">7-8 February, Shiv Nadar University</p>
         <div>
           <a href="#about" class="about-btn scrollto k-hover">About The Event</a>
@@ -1006,10 +1027,10 @@ display:none;" onclick="disappear()">OK</button> <!-- disappear -->
           <ul id="faq-list">
 
             <li>
-              <a data-toggle="collapse" class="collapsed" href="#faq1">What is the registration fees? <i class="fa fa-minus-circle"></i></a>
+              <a data-toggle="collapse" class="collapsed" href="#faq1">Is there a registration fee? <i class="fa fa-minus-circle"></i></a>
               <div id="faq1" class="collapse" data-parent="#faq-list">
                 <p>
-                  If your team clears the initial phase of evaluation, you will be required to pay an amount of 150 rupees per team upon which you will be invited to join the hackathon!
+                  NO! Registration is absolutely free!
                 </p>
               </div>
             </li>
@@ -1018,7 +1039,7 @@ display:none;" onclick="disappear()">OK</button> <!-- disappear -->
               <a data-toggle="collapse" href="#faq2" class="collapsed">What will be the selection criteria?<i class="fa fa-minus-circle"></i></a>
               <div id="faq2" class="collapse" data-parent="#faq-list">
                 <p>
-                  We will review your resume/CV and your github profile (if any) and send you the selection email a day or two after the registrations close.
+                  We will review your github profile and send you the selection email a day or two after the registrations close.
                 </p>
               </div>
             </li>
@@ -1305,39 +1326,41 @@ display:none;" onclick="disappear()">OK</button> <!-- disappear -->
       <div class="container">
         <div class="section-header">
           <h2>Sponsors</h2>
+          <p>We're thankful for our sponsors, without whom this event would not be possible</p>
         </div>
 
-        <div style="text-align:center;">
+        <!-- <div style="text-align:center;">
           <h3>To be announced</h3>
           <h3>Stay tuned!</h3>
-        </div>
-        <!-- <div class="row no-gutters supporters-wrap clearfix">
+        </div> -->
+
+        <div class="row no-gutters supporters-wrap clearfix">
 
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
-              <img src="img/supporters/1.png" class="img-fluid" alt="">
+              <img src="img/supporters/balsamiq.png" class="img-fluid" alt="">
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
-              <img src="img/supporters/2.png" class="img-fluid" alt="">
+              <img src="img/supporters/Coding_ninjas.svg" class="img-fluid" alt="">
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
-              <img src="img/supporters/3.png" class="img-fluid" alt="">
+              <img src="img/supporters/hackr_combo_dark.png" class="img-fluid" alt="">
             </div>
           </div>
 
           <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
-              <img src="img/supporters/4.png" class="img-fluid" alt="">
+              <img src="img/supporters/wolfram.png" class="img-fluid" alt="">
             </div>
           </div>
 
-          <div class="col-lg-3 col-md-4 col-xs-6">
+          <!-- <div class="col-lg-3 col-md-4 col-xs-6">
             <div class="supporter-logo">
               <img src="img/supporters/5.png" class="img-fluid" alt="">
             </div>
@@ -1359,9 +1382,9 @@ display:none;" onclick="disappear()">OK</button> <!-- disappear -->
             <div class="supporter-logo">
               <img src="img/supporters/8.png" class="img-fluid" alt="">
             </div>
-          </div>
+          </div> -->
 
-        </div> -->
+        </div>
 
       </div>
 
@@ -1423,7 +1446,7 @@ display:none;" onclick="disappear()">OK</button> <!-- disappear -->
         <div class="row">
 
           <div class="col-lg-3 col-md-6 footer-info">
-            <img src="img/hackdata4.0_logo.png" alt="TheEvenet">
+            <img src="img/hackdata_logo red.png" style="height:100px;" alt="TheEvenet">
             <!-- <p>In alias aperiam. Placeat tempore facere. Officiis voluptate ipsam vel eveniet est dolor et totam porro. Perspiciatis ad omnis fugit molestiae recusandae possimus. Aut consectetur id quis. In inventore consequatur ad voluptate cupiditate debitis accusamus repellat cumque.</p> -->
           </div>
 
