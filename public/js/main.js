@@ -735,3 +735,225 @@ function disappear(){
   $("filename3").val('');
 }
 
+
+// FORM
+
+// <form class="contactForm" id="myform">
+// <!-- <form
+// action="https://formspree.io/xpzqzjpw"
+// method="POST"
+// enctype="multipart/form-data"
+// > -->
+//     <div class="form-group">
+//       <label for="sel">Number of team members</label>
+//         <select id="sel" class="form-control">
+//             <option value="two">Two</option>
+//             <option value="three">Three</option>
+//         </select>
+//     </div>
+//
+//     <div class="form-group">
+//       <input type="text" class="form-control" name="teamname" id="subject" placeholder="Team Name" data-rule="minlen:1" data-msg="Please enter a team name" required/>
+//       <!-- <div class="validation"></div> -->
+//     </div>
+//     <div class="form-group">
+//       <label>Select track</label>
+//       <div class="form-check">
+//         <input class="form-check-input" type="radio" name="track" id="exampleRadios1" value="Energy" checked>
+//         <label class="form-check-label" for="exampleRadios1">
+//           Energy
+//         </label>
+//       </div>
+//       <div class="form-check">
+//         <input class="form-check-input" type="radio" name="track" id="exampleRadios2" value="Education">
+//         <label class="form-check-label" for="exampleRadios2">
+//           Education
+//         </label>
+//       </div>
+//       <div class="form-check">
+//         <input class="form-check-input" type="radio" name="track" id="exampleRadios3" value="Security and Resilience">
+//         <label class="form-check-label" for="exampleRadios3">
+//           Security and Resilience
+//         </label>
+//       </div>
+//       <div class="form-check">
+//         <input class="form-check-input" type="radio" name="track" id="exampleRadios4" value="Economic Development and Entrepreneurship">
+//         <label class="form-check-label" for="exampleRadios4">
+//           Economic Development and Entrepreneurship
+//         </label>
+//       </div>
+//       <div class="form-check">
+//         <input class="form-check-input" type="radio" name="track" id="exampleRadios5" value="Smart City Solutions">
+//         <label class="form-check-label" for="exampleRadios5">
+//           Smart City Solutions
+//         </label>
+//       </div>
+//     </div>
+//     <br />
+//     <label>Details of team member 1</label>
+//     <div class="form-row">
+//       <div class="form-group col-md-6">
+//         <input type="text" name="name1" class="form-control" id="name1" placeholder="Name" data-rule="minlen:1" data-msg="Please enter name" required/>
+//         <!-- <div class="validation"></div> -->
+//       </div>
+//       <div class="form-group col-md-6">
+//         <input type="text" class="form-control" name="college1" id="college1" placeholder="College name" data-rule="minlen:1" data-msg="Please enter college name" required/>
+//         <!-- <div class="validation"></div> -->
+//       </div>
+//     </div>
+//     <div class="form-row">
+//       <div class="form-group col-md-6">
+//         <input type="text" name="number1" class="form-control" id="number1" placeholder="Phone number" data-rule="minlen:10" data-msg="Please enter a valid phone number" required/>
+//         <!-- <div class="validation"></div> -->
+//       </div>
+//       <div class="form-group col-md-6">
+//         <input type="email" class="form-control" name="email1" id="email1" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" required/>
+//         <!-- <div class="validation"></div> -->
+//       </div>
+//     </div>
+//     <div class="form-group col-md-12">
+//       <input type="text" name="github1" class="form-control" id="github1" placeholder="GitHub profile of member 1" data-rule="minlen:1" data-msg="Please enter GitHub profile" required/>
+//     </div>
+//     <!-- <div class="custom-file col-md-12">
+//
+//       <input id="filename" type="file" name="filename"  class="custom-file-input" required/>
+//       <label id="filelabel" for="filename" class="custom-file-label">Resume of 1<sup>st</sup> Member</label>
+//     </div>
+//     <small class="text-muted">
+//       Must be less than 2MB & of type pdf,doc or docx only!
+//     </small> -->
+//     <div class="m-3"></div>
+//     <!-- <div class="form-group col-md-6">
+//       <label>Resume of member 1</label>
+//       <input type="file" name="cv1" class="form-control" id="cv1" required />
+//       <div class="validation"></div>
+//     </div> -->
+//     <br />
+//     <label>Details of team member 2</label>
+//     <div class="form-row">
+//       <div class="form-group col-md-6">
+//         <input type="text" name="name2" class="form-control" id="name2" placeholder="Name" data-rule="minlen:1" data-msg="Please enter name" required />
+//         <!-- <div class="validation"></div> -->
+//       </div>
+//       <div class="form-group col-md-6">
+//         <input type="text" class="form-control" name="college2" id="college2" placeholder="College name" data-rule="minlen:1" data-msg="Please enter college name" required/>
+//         <!-- <div class="validation"></div> -->
+//       </div>
+//     </div>
+//     <div class="form-row">
+//       <div class="form-group col-md-6">
+//         <input type="text" name="number2" class="form-control" id="number2" placeholder="Phone number" data-rule="minlen:10" data-msg="Please enter a valid phone number" required/>
+//         <!-- <div class="validation"></div> -->
+//       </div>
+//       <div class="form-group col-md-6">
+//         <input type="email" class="form-control" name="email2" id="email2" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" required/>
+//         <!-- <div class="validation"></div> -->
+//       </div>
+//     </div>
+//     <div class="form-group col-md-12">
+//       <input type="text" name="github2" class="form-control" id="github2" placeholder="GitHub profile of member 2" data-rule="minlen:1" data-msg="Please enter GitHub profile" required/>
+//     </div>
+//     <!-- <div class="custom-file col-md-12">
+//
+//       <input id="filename2" type="file" name="filename2"  class="custom-file-input" required />
+//
+//       <label id="filelabel2" for="filename2" class="custom-file-label">Resume of 2<sup>nd</sup> Member</label>
+//     </div>
+//     <small id="" class="text-muted">
+//       Must be less than 2MB & of type pdf,doc or docx only!
+//     </small> -->
+//     <div class="m-3"></div>
+//     <!-- <div class="form-group col-md-6">
+//       <label>Resume of member 2</label>
+//       <input type="file" name="cv2" class="form-control" id="cv2" required />
+//       <div class="validation"></div>
+//     </div> -->
+//     <br />
+//     <div class="two box">
+//       <!-- <div class="form-row">
+//         <div class="form-group col-md-6">
+//           <input type="hidden" name="name3" value="NA" class="form-control" id="name3" placeholder="Name" data-rule="minlen:1" data-msg="Please enter name" />
+//         </div>
+//         <div class="form-group col-md-6">
+//           <input type="hidden" class="form-control" name="college3" value="NA" id="college3" placeholder="College name" data-rule="minlen:1" data-msg="Please enter college name"/>
+//         </div>
+//       </div>
+//       <div class="form-row">
+//         <div class="form-group col-md-6">
+//           <input type="hidden" name="number3" value="NA" class="form-control" id="number3" placeholder="Phone number" data-rule="minlen:10" data-msg="Please enter a valid phone number" />
+//         </div>
+//         <div class="form-group col-md-6">
+//           <input type="hidden" class="form-control" name="email3" value="NA" id="email3" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" />
+//         </div>
+//
+//       </div>
+//       <div class="custom-file col-md-12">
+//
+//         <input id="filename3" type="file" name="filename3"  class="custom-file-input"/>
+//       </div> -->
+//     </div>
+//     <div class="three box">
+//       <label>Details of team member 3</label>
+//       <div class="form-row">
+//         <div class="form-group col-md-6">
+//           <input type="text" name="name3" class="form-control" id="name3" placeholder="Name" data-rule="minlen:1" data-msg="Please enter name" required/>
+//           <!-- <div class="validation"></div> -->
+//         </div>
+//         <div class="form-group col-md-6">
+//           <input type="text" class="form-control" name="college3" id="college3" placeholder="College name" data-rule="minlen:1" data-msg="Please enter college name" required/>
+//           <!-- <div class="validation"></div> -->
+//         </div>
+//       </div>
+//       <div class="form-row">
+//         <div class="form-group col-md-6">
+//           <input type="text" name="number3" class="form-control" id="number3" placeholder="Phone number" data-rule="minlen:10" data-msg="Please enter a valid phone number" required/>
+//           <!-- <div class="validation"></div> -->
+//         </div>
+//         <div class="form-group col-md-6">
+//           <input type="email" class="form-control" name="email3" id="email3" placeholder="Your Email" data-rule="email" data-msg="Please enter a valid email" required/>
+//           <!-- <div class="validation"></div> -->
+//         </div>
+//
+//       </div>
+//       <div class="form-group col-md-12">
+//         <input type="text" name="github3" class="form-control" id="github3" placeholder="GitHub profile of member 3" data-rule="minlen:1" data-msg="Please enter GitHub profile" required/>
+//       </div>
+//       <!-- <div class="custom-file col-md-12">
+//
+//         <input id="filename3" type="file" name="filename3"  class="custom-file-input" required/>
+//
+//         <label id="filelabel3" for="filename3" class="custom-file-label">Resume of 3<sup>rd</sup> Member</label>
+//       </div>
+//       <small class="text-muted">
+//         Must be less than 2MB & of type pdf,doc or docx only!
+//       </small> -->
+//       <div class="m-3"></div>
+//     </div>
+//
+//
+//     <!-- <div class="red box">You have selected <strong>red option</strong> so i am here</div>
+//     <div class="green box">You have selected <strong>green option</strong> so i am here</div>
+//     <div class="blue box">You have selected <strong>blue option</strong> so i am here</div> -->
+//
+//
+//
+//
+//   <!-- <div class="form-group col-md-6">
+//     <label>Resume of member 3</label>
+//     <input type="file" name="cv3" class="form-control" id="cv3" required />
+//     <div class="validation"></div>
+//   </div> -->
+//   <br />
+//   <!-- <div class="form-group">
+//     <input type="text" class="form-control" name="subject" id="subject" placeholder="Subject" data-rule="minlen:4" data-msg="Please enter at least 8 chars of subject" />
+//     <div class="validation"></div>
+//   </div>
+//   <div class="form-group">
+//     <textarea class="form-control" name="message" rows="5" data-rule="required" data-msg="Please write something for us" placeholder="Message"></textarea>
+//     <div class="validation"></div>
+//   </div> -->
+//
+//   <div class="text-center">
+//     <button type="submit" value="upload" id="btnPlaceOrder">Verify Data?</button></div>
+//   <!-- <input type="submit" value="upload" /> -->
+// </form>
