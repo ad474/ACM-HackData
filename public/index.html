@@ -343,6 +343,7 @@ document.getElementById("demo").innerHTML = days + "d "
     document.getElementById("hour").innerHTML =hours;
     document.getElementById("minute").innerHTML = minutes;
     document.getElementById("second").innerHTML =seconds;
+t=-1; //change over here
     if (t < 0) {
             clearInterval(x);
             document.getElementById("demo").innerHTML = "HackData has BEGUN";
@@ -1024,8 +1025,37 @@ display:none;" onclick="disappear()">OK</button> <!-- disappear -->
           <p>Here are some of our judges, who are best in the industry</p>
         </div>
         <div style="text-align:center;">
-          <h3>To be announced</h3>
-          <h3>Stay tuned!</h3>
+          <div class="row">
+              <div class="col">
+                  <div class="card" style="width: 18rem;">
+                      <img class="card-img-top" src="img/judges/1.jpeg" alt="Card image cap">
+                      <div class="card-body">
+                          <h5 class="card-title"></h5>
+                          <p class="card-text"  style="height: 200px">Sr Product Management Director of Innovaccer, Varun Dhawan, is going to be on the judging panel. Varun is a part of the Founding Team at Innovaccer, and has been a vital cog in their success over the years.</p>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="col">
+                  <div class="card" style="width: 18rem;">
+                      <img class="card-img-top" src="img/judges/2.jpeg" alt="Card image cap">
+                      <div class="card-body">
+                          <h5 class="card-title"></h5>
+                          <p class="card-text" style="height: 200px">Shilpa Garg - experienced technical Consultant in Machine Learning & Python Domain with a demonstrated history of working in the information technology and services industry.</p>
+                      </div>
+                  </div>
+              </div>
+
+              <div class="col">
+                  <div class="card" style="width: 18rem;">
+                      <img class="card-img-top" src="img/judges/3.jpeg" alt="Card image cap">
+                      <div class="card-body">
+                          <h5 class="card-title"></h5>
+                          <p class="card-text"  style="height: 200px">Pankaj Mittal is a professional offering 12 years of cross-functional expertise with strong inclination and insight about Training and Education Business.</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
         </div>
 
 
